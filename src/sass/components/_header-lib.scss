@@ -1,5 +1,71 @@
-// РЕКОМЕНДАЦІЇ:
-// 1. Групувати властивості пробілом по групам: геометрія, шрифт, кольори, ефекти.
-// 2. Використоувати функцію calc() та url() та linear-gradient().
-// 3. Кольори мають бути в змінних.
-// 4. Зображення в розмірах 1х та 2х.
+.library-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+  background-image: url(../images/header-lib/library-mobile-min.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 100;
+
+  @include retina {
+    background-image: url(../images/header-lib/library-mobile@2x-min.png);
+  }
+
+  @include tablet {
+    background-image: url(../images/header-lib/library-tablet-min.png);
+
+    @include retina {
+      background-image: url(../images/header-lib/library-tablet@2x-min.png);
+    }
+  }
+
+  @include desktop {
+    background-image: url(../images/header-lib/library-desktop-min.png);
+
+    @include retina {
+      background-image: url(../images/header-lib/library-desktop@2x-min.png);
+    }
+  }
+}
+
+.buttons-block {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+.button {
+  width: 148px;
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ffffff;
+  border-color: #ffffff;
+  background-color: transparent;
+  text-transform: uppercase;
+
+  &:first-child {
+    margin-right: 16px;
+  }
+
+  &:hover,
+  &:focus {
+    border: none;
+    background-color: #ff6b08;
+    box-shadow: 0 0 15px #ff6b08;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.navigation-list__link {
+  position: relative;
+  text-transform: uppercase;
+}
+
+.is-active-library {
+  background-color: #ff6b08;
+  border: none;
+}
