@@ -1,23 +1,18 @@
-// Main text
-$color-header: #ffffff;
-$color-body: #000000;
-$color-footer: #545454;
+$primary-font-style: Roboto, sans-serif;
 
-// Accent colors
-$color-accent: #ff6b08;
-$color-accent-sec: #ff6b01;
-$color-link-underline: #ff001b;
+$primary-font-size: 12px;
+$primary-line-height: 1.3;
 
-// Background
-$color-bcg: #e5e5e5;
-$color-bcg-footer: #f7f7f7;
+$primary-text-color: #ffffff;
+$secondary-text-color: #000000;
+$warning-text-color: #ff001b;
+$button-text-color: #ffffff;
+$footer-text-color: #545454;
 
-// Input forms
-$color-text-placeholder: #505050;
-$color-text-invalid: #ff705d;
+$primary-bgc: #ffffff;
+$secondary-bgc: #f7f7f7;
 
-// Util variables
-$font-basic: 'Roboto', sans-serif;
+$accent-color: #ff6b08;
 
-$duration: 250ms;
-$timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+$bg-header-gradient: linear-gradient(rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56));
