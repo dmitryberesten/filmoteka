@@ -5,6 +5,7 @@
 // 4. Модалка учасників команди.
 
 import './js/api';
+import * as customComponent from './js/custom-components';
 import * as renderingMovieCards from './js/rendering-movie-cards';
 import * as searchByKeyword from './js/search-by-keyword';
 import * as openModal from './js/open-and-close-modal';
