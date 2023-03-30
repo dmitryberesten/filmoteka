@@ -30,8 +30,6 @@
   }
 }
 
-// linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56))
-
 .header_wraper {
   display: flex;
   justify-content: space-between;
@@ -40,42 +38,27 @@
   padding-bottom: 54px;
 }
 
-//напиши стилі щоб при ховері на колір svg теж змінювався
-
-// .logo-film:hover > svg,
-// .logo-film:focus > svg,
-// .logo-film:hover > span,
-// .logo-film:focus > span {
-//   color: #ff001b;
-//   stroke: #ff001b;
-
-//   text-shadow: 0 0 15px #ff001b;
-//   transition: all 0.3s ease-in-out;
-// }
-
-.logo-film:hover {
-  color: #ff001b;
+.header-wraper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 54px;
 }
-// .logo-film:hover .logo__name,
-// .logo-film:focus .logo__name,
-// .logo-film:hover .logo {
-//   color: #ff001b;
-//   text-shadow: 0 0 15px #ff001b;
-//   transition: all 0.3s ease-in-out;
-// }
 
-// .logo-container .logo-film svg:hover.logo {
-//   color: #ff001b;
-//   box-shadow: 0 0 15px #fce38a;
-//   transition: all 0.3s ease-in-out;
-// }
+.logo-film:hover > svg,
+.logo-film:focus > svg,
+.logo-film:hover > span,
+.logo-film:focus > span {
+  color: #ff001b;
+  stroke: #ff001b;
 
-// .logo {
-//   stroke: blue;
-// }
+  text-shadow: 0 0 15px #ff001b;
+  transition: all 0.3s ease-in-out;
+}
 
 .logo {
-  fill: red;
+  stroke: #ffffff;
 }
 
 .logo__name {
@@ -152,12 +135,11 @@
 
 .search-btn {
   stroke: #ffffff;
-
   fill: #ffffff;
   position: absolute;
   width: 22px;
   height: 22px;
-  // top: -4px;
+
   bottom: 10px;
   right: 10px;
   border: none;
