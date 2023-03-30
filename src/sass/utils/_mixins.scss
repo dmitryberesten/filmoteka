@@ -1,0 +1,124 @@
+@mixin transition($parametrs...) {
+  @if length($parametrs) > 1 {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: $parametrs;
+  } @else {
+    transition: $parametrs 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@mixin font($fw, $fs, $lh, $ls) {
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+@mixin animation-ping-pong {
+  animation-name: ping-pong;
+  animation-duration: 500ms;
+  animation-delay: 3250ms;
+
+  animation-timing-function: ease-out;
+  transition-property: top;
+
+  @keyframes ping-pong {
+    0% {
+      top: -10px;
+    }
+    50% {
+      top: 0px;
+    }
+    100% {
+      top: -10px;
+    }
+  }
+}
+@mixin animation-rotate {
+  animation-name: rotate;
+  animation-duration: 500ms;
+  animation-delay: 2000ms;
+
+  animation-timing-function: ease-out;
+  transition-property: transform;
+  @content;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+      box-shadow: 0px 6px 20px rgba(10, 136, 23, 0.25);
+    }
+    50% {
+      transform: rotate(180deg);
+      box-shadow: 0px 6px 20px rgba(10, 136, 23, 0);
+    }
+    100% {
+      transform: rotate(0deg);
+      box-shadow: 0px 6px 20px rgba(10, 136, 23, 0.25);
+    }
+  }
+}
+@mixin animation-fade-in {
+  animation-name: fade-in;
+  animation-duration: 500ms;
+  animation-delay: 250ms;
+
+  animation-timing-function: ease-out;
+  transition-property: opacity;
+  animation-fill-mode: backwards;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @content;
+}
+@mixin animation-bounce {
+  animation-name: bounce;
+  animation-duration: 500ms;
+  animation-timing-function: ease-out;
+  @keyframes bounce {
+    0% {
+      transform: scaleX(1);
+    }
+    25% {
+      transform: scaleX(1.35);
+    }
+    50% {
+      transform: scaleX(1);
+    }
+    75% {
+      transform: scaleX(1.2);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+}
+@mixin animation-shake {
+  animation-name: shake;
+  animation-duration: 500ms;
+  animation-timing-function: ease-out;
+  @keyframes shake {
+    0% {
+      transform: translateX(0px);
+    }
+    32% {
+      transform: translateX(5px);
+    }
+    48% {
+      transform: translateX(-5px);
+    }
+    64% {
+      transform: translateX(3px);
+    }
+    80% {
+      transform: translateX(-3px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+}
