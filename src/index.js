@@ -4,6 +4,7 @@
 // 3. Відкирття та закриття модалки.
 // 4. Модалка учасників команди.
 
+import './js/api';
 import * as renderingMovieCards from './js/rendering-movie-cards';
 import * as searchByKeyword from './js/search-by-keyword';
 import * as openModal from './js/open-and-close-modal';
