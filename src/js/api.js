@@ -69,6 +69,7 @@ async function fetchGenres() {
   const data = await response.json();
   return data.genres;
 }
+
 // `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 // console.log(fetchGenres());
 

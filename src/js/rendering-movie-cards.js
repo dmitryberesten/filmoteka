@@ -3,7 +3,6 @@
 
 // ТУТ ПРАЦЮЄ ОЛЕКСАНДР ГАЙДУК
 
-
 // import { fetchPopularMovies } from './api';
 
 // function renderMovies(data) {
