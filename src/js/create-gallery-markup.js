@@ -1,6 +1,8 @@
 // РЕКОМЕНДАЦІЇ
-
 // 1. Створити та експортувати функцію яка перебирає фільми та повертає розмітку.
+
+// ТУТ ПРАЦЮЄ ОЛЕКСАНДР ХИМЕНКО
+
 import { fetchGenres } from "./api";
 
 const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
@@ -46,6 +48,3 @@ async function renderGallery(movies) {
     })
         .join('');
 }
-
-
-
