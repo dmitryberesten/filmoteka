@@ -1,5 +1,244 @@
-// РЕКОМЕНДАЦІЇ:
-// 1. Групувати властивості пробілом по групам: геометрія, шрифт, кольори, ефекти.
-// 2. Використоувати функцію url().
-// 3. Кольори мають бути в змінних.
-// 4. Зображення в розмірах 1х та 2х.
+.header {
+  height: 216px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+  background-image: url(../images/header-main/header-mobile-min.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include retina {
+    background-image: url(../images/header-main/header-mob@2x-min.png);
+  }
+
+  @include tablet {
+    background-image: url(../images/header-main/header-tablet-min.png);
+
+    @include retina {
+      background-image: url(../images/header-main/header-tablet@2x-min.png);
+    }
+  }
+
+  @include desktop {
+    background-image: url(../images/header-main/header-desktop-min.png);
+
+    @include retina {
+      background-image: url(../images/header-main/header-desktop@2x-min.png);
+    }
+  }
+}
+
+// linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56))
+
+.header_wraper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 54px;
+}
+
+//напиши стилі щоб при ховері на колір svg теж змінювався
+
+// .logo-film:hover > svg,
+// .logo-film:focus > svg,
+// .logo-film:hover > span,
+// .logo-film:focus > span {
+//   color: #ff001b;
+//   stroke: #ff001b;
+
+//   text-shadow: 0 0 15px #ff001b;
+//   transition: all 0.3s ease-in-out;
+// }
+
+.logo-film:hover {
+  color: #ff001b;
+}
+// .logo-film:hover .logo__name,
+// .logo-film:focus .logo__name,
+// .logo-film:hover .logo {
+//   color: #ff001b;
+//   text-shadow: 0 0 15px #ff001b;
+//   transition: all 0.3s ease-in-out;
+// }
+
+// .logo-container .logo-film svg:hover.logo {
+//   color: #ff001b;
+//   box-shadow: 0 0 15px #fce38a;
+//   transition: all 0.3s ease-in-out;
+// }
+
+// .logo {
+//   stroke: blue;
+// }
+
+.logo {
+  fill: red;
+}
+
+.logo__name {
+  display: none;
+}
+
+.logo-container > a {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-list {
+  display: flex;
+}
+
+.navigation-list__item {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.17px;
+  font-size: 12px;
+  text-transform: uppercase;
+
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+}
+
+.header-search-form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.search-form {
+  position: relative;
+}
+
+.form-input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: #ffffff;
+  width: 280px;
+  position: relative;
+  border-bottom: 0.5px solid #ffffff;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: 0;
+  background: transparent;
+
+  padding: 10px 10px;
+
+  &:focus-within {
+    border-bottom: 1px solid #ff001b;
+    box-shadow: 0 0 15px #ff001b;
+    border-radius: 5px;
+  }
+
+  @include tablet {
+    width: 336px;
+  }
+
+  @include desktop {
+    width: 394px;
+  }
+}
+
+.form-input::placeholder {
+  color: #ffffff;
+}
+
+.search-btn {
+  stroke: #ffffff;
+
+  fill: #ffffff;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  // top: -4px;
+  bottom: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 50%;
+  background: url(../images/header-main/search.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scale(1);
+  @include transition(transform);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+}
+
+.site-nav__link--current {
+  position: relative;
+  display: block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transform: translateY(1px);
+    display: block;
+    width: 100%;
+    height: 3px;
+    border: none;
+    background-color: #ff001b;
+
+    transition: width 0.2s ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 0;
+  }
+}
+
+@include tablet {
+  .logo__name {
+    display: block;
+    color: #ffffff;
+    font-weight: 500;
+
+    font-size: 30px;
+    line-height: 1.17;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .logo {
+    margin-right: 10px;
+  }
+
+  .form-input {
+    width: 336px;
+  }
+
+  .search-form {
+    position: relative;
+  }
+}
+
+@include desktop {
+  .form-input {
+    width: 394px;
+  }
+}
+
+.input-error {
+  display: flex;
+  justify-content: center;
+  color: #ff001b;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+}
