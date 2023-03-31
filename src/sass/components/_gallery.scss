@@ -24,14 +24,14 @@
   width: 280px;
   font-size: 12px;
 
-  @media screen and (min-width: $desktop) {
-    width: 395px;
-    font-size: 20px;
-  }
-
   @media screen and (min-width: $tablet) {
     width: 336px;
     font-size: 12px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 395px;
+    font-size: 20px;
   }
 }
 
