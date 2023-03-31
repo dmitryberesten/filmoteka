@@ -5,4 +5,5 @@
 foterLink: document.querySelector('.footer__link');
 export const refs = {
   pagination: document.querySelector('.pagination'),
+  slider: document.querySelector('.swiper-wrapper'),
 };
