@@ -48,6 +48,7 @@ async function renderGallery(movies) {
         return `
       <li class='movie_list_item' data-id="${id}>
       <a href="" class='movie_list_link link' id=${id}>
+      <div class="movie__cover--darkened"></div>
         <img class="movie_list_image" src=${poster} alt='Poster ${original_title}' loading='lazy' />
         <div class='movie-info'>
             <p class='movie-title'>
@@ -56,7 +57,9 @@ async function renderGallery(movies) {
             <p class='movie-date'>
               <span>${checkGenres} | ${releaseYear}</span>
             </p>
-            <div class="movie__average">${vote_average.toFixed(1)}</div>
+            <div class="movie__average movie__average--${getClassByRate(
+              vote_average
+            )}">${vote_average.toFixed(1)}</div>
         </div>
         </a>
       </li>
@@ -74,3 +77,13 @@ fetchPopularMovies(2)
   .then(res => {
     moviesEl.insertAdjacentHTML('beforeend', res);
   });
+
+function getClassByRate(vote) {
+  if (vote >= 8) {
+    return 'green';
+  } else if (vote > 6) {
+    return 'orange';
+  } else {
+    return 'red';
+  }
+}
