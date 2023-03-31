@@ -4,7 +4,7 @@ import photoMyhulia from "../images/team/Myhulia.jpeg";
 // import photo from "../images/team/";  Oleksandr Mix
 // import photo from "../images/team/";  Oleksandr H
 import photoBondarenkoI from "../images/team/BondarenkoI.jpeg";
-// import photo from "../images/team/";  Oleksandr
+import photoKhymenko from "../images/team/Khymenko.jpg"; 
 // import photo from "../images/team/"; Yuliya
 import photoBondarenkoY from "../images/team/BondarenkoY.jpeg";
 // import photo from "../images/team/"; Dlada
@@ -53,10 +53,10 @@ export const teamList = [
         photo: photoBondarenkoI,
     },
     {
-        name: 'Oleksandr H',
+        name: 'Oleksandr Khymenko',
         role: 'Developer',
-        github: '',
-        photo: '',
+        github: 'https://github.com/Crash-afftar',
+        photo: photoKhymenko,
     },
     {
         name: 'Yuliya',
@@ -89,9 +89,9 @@ export const teamList = [
         photo: '',
     },
     {
-        name: 'Svetlana',
+        name: 'Svitlana Chaban',
         role: 'Developer',
-        github: '',
+        github: 'https://github.com/Universe2022',
         photo: '',
     },
     {
