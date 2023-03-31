@@ -8,11 +8,14 @@
 .movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
   gap: 16px;
 
   @media screen and (min-width: $tablet) {
     justify-content: center;
+  }
+
+  @media screen and (min-width: $desktop) {
+    justify-content: flex-start;
   }
 }
 
