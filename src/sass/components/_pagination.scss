@@ -10,7 +10,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 60px;
 }
 .page-btn {
   padding: 8px;
@@ -72,5 +72,8 @@ button {
   .next-dots,
   .prev-dots {
     display: none;
+  }
+  .pagination {
+    margin-top: 40px;
   }
 }
