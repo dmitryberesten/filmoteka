@@ -45,9 +45,18 @@ export async function renderGallery(movies) {
           ? getGenres(genre_ids, genres)
           : 'Unknown';
         return `
-      <li class='movie_list_item' data-id="${id}>
-      <a href="" class='movie_list_link link' id=${id}>
-      <div class="movie__cover--darkened"></div>
+      <li class='movie_list_item' data-id="${id}" >
+      <div href="" class='movie_list_link link' id=${id}>
+      <div class="movie__cover--darkened"
+        data-id="${id}"
+        data-poster_path="${poster_path}"
+        data-title="${title}"
+        data-release_date="${release_date}"
+        data-genre_ids="${genre_ids}"
+        data-original_title="${original_title}"
+        data-vote_average="${vote_average}"
+        data-poster="${poster}"
+      ></div>
         <img class="movie_list_image" src=${poster} alt='Poster ${original_title}' loading='lazy' />
         <div class='movie-info'>
             <p class='movie-title'>
@@ -60,7 +69,7 @@ export async function renderGallery(movies) {
               vote_average
             )}">${vote_average.toFixed(1)}</div>
         </div>
-        </a>
+        </div>
       </li>
       `;
       }

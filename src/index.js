@@ -12,3 +12,5 @@ import * as searchByKeyword from './js/search-by-keyword';
 import * as openModal from './js/open-and-close-modal';
 import * as teamModal from './js/team-load-to-modal';
 import * as galleryMarkup from './js/create-gallery-markup';
+import * as modalFilm from './js/loading-into-modal';
+import * as openAndCloseModal from './js/open-and-close-modal';

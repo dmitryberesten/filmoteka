@@ -2,3 +2,244 @@
 // 1. Групувати властивості пробілом по групам: геометрія, шрифт, кольори, ефекти.
 // 2. Використоувати функцію calc().
 // 3. Кольори мають бути в змінних.
+
+
+.modal-wrapper {
+  display: none;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:red;
+  z-index: 999;
+  overflow-y: scroll;
+}
+
+.open {
+  display: flex;
+}
+
+#modal {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 5% auto;
+  max-width: 90%;
+  padding: 20px;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#film-img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+#film-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#description {
+  margin-bottom: 10px;
+}
+
+#votes, #popul, #origTitle, #genre {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+#about {
+  margin-bottom: 10px;
+}
+
+#buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: #0069d9;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #modal {
+    max-width: 70%;
+  }
+
+  #content {
+    flex-direction: row;
+  }
+
+  #left-content {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  #modal {
+    max-width: 50%;
+  }
+
+  #content {
+    flex-direction: row;
+  }
+
+  #left-content {
+    margin-right: 50px;
+  }
+}
+
+
+// #modal-wrapper {
+//   display:flex;
+//   justify-content: center;
+//    position: fixed;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    background-color: rgba(0, 0, 0, 0.5);
+//    display: none;
+//    z-index: 999;
+//    overflow-y: scroll;
+//  }
+
+
+//  #modal {
+//    background-color: #fff;
+//    border-radius: 10px;
+//    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+//    margin: 5% auto;
+//    max-width: 90%;
+//    padding: 20px;
+//  }
+
+
+//  #content {
+//    display: flex;
+//    flex-direction: column;
+//    align-items: center;
+//  }
+
+
+//  #film-img {
+//    width: 100%;
+//    height: auto;
+//    border-radius: 5px;
+//  }
+
+
+//  #film-title {
+//    font-size: 1.5rem;
+//    font-weight: bold;
+//    margin-top: 0;
+//    margin-bottom: 10px;
+//  }
+
+
+//  #description {
+//    margin-bottom: 10px;
+//  }
+
+
+//  #votes {
+//    font-size: 0.9rem;
+//    margin-bottom: 5px;
+//  }
+
+
+//  #popul {
+//    font-size: 0.9rem;
+//    margin-bottom: 5px;
+//  }
+
+
+//  #origTitle {
+//    font-size: 0.9rem;
+//    margin-bottom: 5px;
+//  }
+
+
+//  #genre {
+//    font-size: 0.9rem;
+//    margin-bottom: 5px;
+//  }
+
+
+//  #about {
+//    margin-bottom: 10px;
+//  }
+
+
+//  #buttonWrapper {
+//    display: flex;
+//    flex-direction: row;
+//    justify-content: space-between;
+//    margin-top: 20px;
+//  }
+
+
+//  #buttonWrapper button {
+//    background-color: #007bff;
+//    border: none;
+//    border-radius: 5px;
+//    color: #fff;
+//    cursor: pointer;
+//    font-size: 0.9rem;
+//    padding: 5px 10px;
+//  }
+
+
+//  #buttonWrapper button:hover {
+//    background-color: #0069d9;
+//  }
+
+
+//   @media (min-width: 768px) {
+//    #modal {
+//      max-width: 70%;
+//    }
+//    #content {
+//      flex-direction: row;
+//    }
+//    #left-content {
+//      margin-right: 30px;
+//    }
+//  }
+
+
+//  @media (min-width: 992px) {
+//    #modal {
+//      max-width: 50%;
+//    }
+//    #content {
+//      flex-direction: row;
+//    }
+//    #left-content {
+//      margin-right: 50px;
+//    }
+//  }
+
+
