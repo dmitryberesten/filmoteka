@@ -1,4 +1,17 @@
 // РЕКОМЕНДАЦІЇ
 // 1. Отримувати дані про трендові фільми.
-// 2. Створити розмітку для галереї фільмів.
-// 3. Додати пагінацію на основі загальної кількості результатів та загальної кількості сторінок.
+
+// ТУТ ПРАЦЮЄ ОЛЕКСАНДР ГАЙДУК
+
+import { fetchPopularMovies } from './api';
+import { renderGallery } from './create-gallery-markup';
+const moviesEl = document.querySelector('.movies');
+
+fetchPopularMovies(1)
+  .then(res => {
+    const obj = res.results;
+    return renderGallery(obj);
+  })
+  .then(res => {
+    moviesEl.insertAdjacentHTML('beforeend', res);
+  });

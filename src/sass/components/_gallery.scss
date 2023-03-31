@@ -1,2 +1,106 @@
 // РЕКОМЕНДАЦІЇ:
 // 1. Групувати властивості пробілом по групам.
+
+.gallery {
+  padding: 60px 0;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media screen and (min-width: $tablet) {
+    justify-content: center;
+  }
+
+  @media screen and (min-width: $desktop) {
+    justify-content: flex-start;
+  }
+}
+
+.movie_list_item {
+  position: relative;
+  width: 280px;
+  font-size: 12px;
+
+  @media screen and (min-width: $tablet) {
+    width: 336px;
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 395px;
+    font-size: 20px;
+  }
+}
+
+.movie__cover-inner {
+  position: relative;
+  height: 360px;
+}
+
+.movie__cover {
+  max-width: 100%;
+  height: 100%;
+}
+
+.movie-info {
+  padding: 10px 0px;
+}
+
+.movie-title {
+  color: black;
+}
+
+.movie-date {
+  color: #ff6b08;
+}
+
+.movie__average {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.movie__average--green {
+  color: green;
+  border: 1px solid green;
+}
+
+.movie__average--orange {
+  border: 1px solid orange;
+  color: orange;
+}
+
+.movie__average--red {
+  border: 1px solid red;
+  color: red;
+}
+
+.movie__cover--darkened {
+  background-color: #000000;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.movie__cover--darkened:hover {
+  background-color: grey;
+  cursor: pointer;
+}

@@ -69,6 +69,7 @@ async function fetchGenres() {
   const data = await response.json();
   return data.genres;
 }
+
 // `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 // console.log(fetchGenres());
 
@@ -82,3 +83,10 @@ export {
   BASE_URL,
   API_KEY,
 };
+
+// РЕКОМЕНДАЦІЇ
+// 1. Імпортувати axios.
+// 2. Зберегти в змінних ключ та URL.
+// 3. Створити та експортувати асинхронні запити по:
+// трендах, ключовому слові, інфо фільму, інфо відео, масив фільмів.
+

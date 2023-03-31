@@ -9,16 +9,16 @@ body {
   min-height: 100vh;
 }
 
-body::-webkit-scrollbar {
-  appearance: none;
-  background: #000;
-  width: 5px;
-}
+// body::-webkit-scrollbar {
+//   appearance: none;
+//   background: #000;
+//   width: 5px;
+// }
 
-body::-webkit-scrollbar-thumb {
-  background: #ff6b08;
-  border-radius: 5px;
-}
+// body::-webkit-scrollbar-thumb {
+//   background: #ff6b08;
+//   border-radius: 5px;
+// }
 
 h1,
 h2,
@@ -60,22 +60,22 @@ a:not([class]) {
 }
 
 .container {
-  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 32px;
 
   @media screen and (min-width: $mobile) {
     width: $mobile;
   }
 
   @media screen and (min-width: $tablet) {
-    width: $tablet;
-    padding: 0 32px;
+    width: 768px;
+    // padding: 0 32px;
   }
 
   @media screen and (min-width: $desktop) {
-    width: $desktop;
-    padding: 0 32px;
+    width: 1300px;
+    // padding: 0 32px;
   }
 }
 

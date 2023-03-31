@@ -7,11 +7,13 @@
 @import './base/body';
 
 // components
+@import './components/custom-components';
 @import './components/header-main';
 @import './components/header-lib';
 @import './components/gallery';
 @import './components/gallery-card';
 @import './components/footer';
+@import './components/trailer';
 @import './components/modal-film';
 @import './components/pagination';
 @import './components/loader';
