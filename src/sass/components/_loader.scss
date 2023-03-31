@@ -4,6 +4,19 @@
 // 3. Кольори мають бути в змінних.
 
  //спінер із сайту SpinKit
+ 
+/* Config */
+:root {
+    --sk-size: 40px;
+    --sk-color: #333;
+}
+
+/* Utility class for centering */
+.sk-center {
+    margin: auto;
+    
+}
+
 .sk-chase {
     width: 40px;
     height: 40px;
