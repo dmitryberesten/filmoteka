@@ -14,5 +14,7 @@ import * as teamModal from './js/team-load-to-modal';
 import * as galleryMarkup from './js/create-gallery-markup';
 import { refs } from './js/refs';
 import { onBtnPageClick } from './js/pagination';
-
+import { onLinkPlayClick, onLoadMarkup, swiper } from './js/slider';
+window.addEventListener('load', onLoadMarkup);
 refs.pagination.addEventListener('click', onBtnPageClick);
+refs.slider.addEventListener('click', onLinkPlayClick);
