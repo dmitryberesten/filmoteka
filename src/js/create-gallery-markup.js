@@ -27,16 +27,15 @@ async function renderGallery(movies) {
   const genres = await fetchGenres();
   return movies
     .map(
-      (
-        {
-          id,
-          poster_path,
-          title,
-          release_date,
-          genre_ids,
-          original_title,
-        } = movies.results
-      ) => {
+      ({
+        id,
+        poster_path,
+        title,
+        release_date,
+        genre_ids,
+        original_title,
+        vote_average,
+      } = movies) => {
         const poster = poster_path
           ? `https://image.tmdb.org/t/p/w500${poster_path}`
           : NO_POSTER;
@@ -57,6 +56,7 @@ async function renderGallery(movies) {
             <p class='movie-date'>
               <span>${checkGenres} | ${releaseYear}</span>
             </p>
+            <div class="movie__average">${vote_average.toFixed(1)}</div>
         </div>
         </a>
       </li>
