@@ -69,9 +69,9 @@ export const onLinkPlayClick = async evt => {
   if (evt.target.nodeName !== 'A') return;
   try {
     const { results } = await fetchTrailerById(evt.target.dataset.id);
-    const { key, type } = results[0];
+    const { key } = results[0];
     const instance = basicLightbox.create(
-      `<iframe width="560" height="315" src="https://www.youtube.com/embed/iuntihpAo8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+      `<iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
       {
         onShow: () => {
           document.addEventListener('keydown', closeModal);
