@@ -7,7 +7,6 @@ import { fetchGenres } from './api';
 import { fetchPopularMovies } from './api';
 
 const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
-const moviesEl = document.querySelector('.movies');
 
 export function getGenres(arrayId, genres) {
   const arr = [];
@@ -23,7 +22,7 @@ export function getGenres(arrayId, genres) {
   return arr.join(', ');
 }
 
-async function renderGallery(movies) {
+export async function renderGallery(movies) {
   const genres = await fetchGenres();
   return movies
     .map(
@@ -69,16 +68,16 @@ async function renderGallery(movies) {
     .join('');
 }
 
-fetchPopularMovies(2)
-  .then(res => {
-    const obj = res.results;
-    return renderGallery(obj);
-  })
-  .then(res => {
-    moviesEl.insertAdjacentHTML('beforeend', res);
-  });
+// fetchPopularMovies(2)
+//   .then(res => {
+//     const obj = res.results;
+//     return renderGallery(obj);
+//   })
+//   .then(res => {
+//     moviesEl.insertAdjacentHTML('beforeend', res);
+//   });
 
-function getClassByRate(vote) {
+export function getClassByRate(vote) {
   if (vote >= 8) {
     return 'green';
   } else if (vote > 6) {
