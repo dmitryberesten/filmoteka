@@ -2,3 +2,75 @@
 // 1. Групувати властивості пробілом по групам: геометрія, шрифт, кольори, ефекти.
 // 2. Використоувати функцію url().
 // 3. Кольори мають бути в змінних.
+/*----- pagination style-----*/
+button {
+  cursor: pointer;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.page-btn {
+  padding: 8px;
+
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.25;
+
+  background: transparent;
+  border: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.page-btn.active-page {
+  width: 40px;
+  height: 40px;
+
+  background-color: $accent-color;
+  color: $primary-text-color;
+
+  border-radius: 5px;
+  border: none;
+}
+.prev-btn,
+.next-btn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 5px;
+  border: none;
+
+  background: $secondary-bgc;
+}
+.icon {
+  display: flex;
+  align-self: center;
+
+  width: 16px;
+  height: 16px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  pointer-events: none;
+}
+@media screen and (max-width: 768px) {
+  .end-btn,
+  .start-btn,
+  .next-dots,
+  .prev-dots {
+    display: none;
+  }
+}

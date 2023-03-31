@@ -2,7 +2,7 @@
 // 1. Рендер із локал сториджа.
 // 2. Відкирття та закриття модалки.
 // 3. Модалка учасників команди.
-
+import { page } from './js/api';
 import './js/api';
 import './js/trailer';
 import * as renderingFromStorage from './js/render-from-storage';
