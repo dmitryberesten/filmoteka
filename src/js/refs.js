@@ -3,3 +3,4 @@
 // 2. Експортувати константу refs.
 
 
+foterLink: document.querySelector('.footer__link');
