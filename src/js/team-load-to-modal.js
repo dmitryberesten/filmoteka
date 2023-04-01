@@ -4,9 +4,9 @@
 // 2. Додати логіку показу/закриття по бекдропу та ESCAPE.
 
 const refs = {
-    openModal: document.querySelector('.js-open-modal-team'),
-    closeModal: document.querySelector('.js-close-modal-team'),
-    teamBackdrop: document.querySelector('.modal'),
+    openModal: document.querySelector('.open-modal-team'),
+    closeModal: document.querySelector('.close-modal-team'),
+    teamBackdrop: document.querySelector('.backdrop-modal'),
   };
 
 refs.openModal.addEventListener('click', openModalTeam);
