@@ -24,6 +24,7 @@ export function getGenres(arrayId, genres) {
 
 export async function renderGallery(movies) {
   const genres = await fetchGenres();
+  console.log('MOV', movies);
   return movies
     .map(
       ({
@@ -34,6 +35,9 @@ export async function renderGallery(movies) {
         genre_ids,
         original_title,
         vote_average,
+        popularity,
+        vote_count,
+        overview,
       } = movies) => {
         const poster = poster_path
           ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -45,9 +49,19 @@ export async function renderGallery(movies) {
           ? getGenres(genre_ids, genres)
           : 'Unknown';
         return `
-      <li class='movie_list_item' data-id="${id}>
-      <a href="" class='movie_list_link link' id=${id}>
-      <div class="movie__cover--darkened"></div>
+      <li class='movie_list_item' data-id="${id}" >
+      <div href="" class='movie_list_link link' id=${id}>
+      <div class="movie__cover--darkened"
+        data-id="${id}"
+        data-poster_path="${poster}"
+        data-title="${title}"
+        data-genre_ids="${checkGenres}"
+        data-original_title="${original_title}"
+        data-vote_average="${vote_average}"
+        data-popularity="${popularity}"
+        data-vote_count="${vote_count}"
+        data-overview="${overview}"
+      ></div>
         <img class="movie_list_image" src=${poster} alt='Poster ${original_title}' loading='lazy' />
         <div class='movie-info'>
             <p class='movie-title'>
@@ -60,7 +74,7 @@ export async function renderGallery(movies) {
               vote_average
             )}">${vote_average.toFixed(1)}</div>
         </div>
-        </a>
+        </div>
       </li>
       `;
       }
