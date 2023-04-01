@@ -112,23 +112,7 @@
     }
   }
 
-  .team__lead {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-     gap: 30px;
-  flex-direction: column;
-     @media screen and (min-width: 768px) {
-      //flex-wrap: nowrap;
-      width: 490px;
-    gap: 25px;
-    }
   
-    @media screen and (min-width: 1280px) {
-    gap: 45px;
-    }
-  }
-
   .team__member {
     display: flex;
     justify-content: center;
@@ -143,6 +127,7 @@
    }
   
     @media screen and (min-width: 768px) {
+      width: 200px;
     &:hover,
     &:focus {
     transform: scale(1.3);
@@ -178,6 +163,7 @@
   
   @media screen and (min-width: 768px) {
   font-size: 19px;
+  align-content: center;
   }
   
   @media screen and (min-width: 1280px) {
