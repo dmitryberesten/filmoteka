@@ -5,28 +5,36 @@
 -->
 <div id="info-modal" class="modal-wrapper">
   <div id="modal">
+    <div id="close-modal" class="backdrop"></div>
     <div id="movie-card">
-      <div id="left-content">
-        <img id="film-img"
-          src="https://res.klook.com/image/upload/c_fill,w_843,h_474/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ys5jqwvg6pgtpacb5kqb.webp"
-          alt="Film Image" />
-      </div>
-      <div id="right-content">
-        <h2 id="film-title"></h2>
-        <div id="description">
-          <div id="votes"></div>
-          <div id="popul"></div>
-          <div id="origTitle"></div>
-          <div id="genre"></div>
+      <div id="content">
+        <div id="left-content">
+          <img id="film-img" alt="Film Image" />
         </div>
-        <div id="about">
-          <p>Trulala</p>
-        </div>
-        <div id="buttonWrapper">
-          <button></button>
-          <button></button>
+        <div id="right-content">
+          <h2 id="film-title"></h2>
+          <div id="description">
+            <div class="left-descr-content">Votes <div id="votes"></div>
+            </div>
+            <div class="left-descr-content">Popularity <div id="popul"></div>
+            </div>
+            <div class="left-descr-content">Original title<div id="origTitle"></div>
+            </div>
+            <div class="left-descr-content">Genre
+              <div id="genre"></div>
+            </div>
+          </div>
+          <div class="about-wrapper">
+            <span>About</span>
+            <div id="about"></div>
+          </div>
+
+          <div id="buttonWrapper">
+            <button></button>
+            <button></button>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
-</div>

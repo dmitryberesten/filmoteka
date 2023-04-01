@@ -24,6 +24,7 @@ export function getGenres(arrayId, genres) {
 
 export async function renderGallery(movies) {
   const genres = await fetchGenres();
+  console.log('MOV', movies);
   return movies
     .map(
       ({
@@ -34,6 +35,9 @@ export async function renderGallery(movies) {
         genre_ids,
         original_title,
         vote_average,
+        popularity,
+        vote_count,
+        overview,
       } = movies) => {
         const poster = poster_path
           ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -49,13 +53,14 @@ export async function renderGallery(movies) {
       <div href="" class='movie_list_link link' id=${id}>
       <div class="movie__cover--darkened"
         data-id="${id}"
-        data-poster_path="${poster_path}"
+        data-poster_path="${poster}"
         data-title="${title}"
-        data-release_date="${release_date}"
-        data-genre_ids="${genre_ids}"
+        data-genre_ids="${checkGenres}"
         data-original_title="${original_title}"
         data-vote_average="${vote_average}"
-        data-poster="${poster}"
+        data-popularity="${popularity}"
+        data-vote_count="${vote_count}"
+        data-overview="${overview}"
       ></div>
         <img class="movie_list_image" src=${poster} alt='Poster ${original_title}' loading='lazy' />
         <div class='movie-info'>

@@ -1,38 +1,32 @@
-// РЕКОМЕНДАЦІЇ
-// 1. Написати логіку відкриття/закриття модалки.
-// 2. Написати логіку закриття модалки по клавіші ESCAPE.
-// 3. Написати логіку закриття модалки по бекдропу.
+import * as modalFunctions from './loading-into-modal';
 
-const closeButton = document.querySelector(
-  '#modal #buttonWrapper button:nth-child(2)'
-);
-closeButton.addEventListener('click', () => {
-  modal.style.display = 'none';
+const modal = document.getElementById('info-modal');
+
+window.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    modal.classList.remove('open');
+    localStorage.removeItem('modalCardData');
+  }
 });
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
-    localStorage.setItem('modalCardData');
-  }
-};
-document.onkeydown = function (evt) {
-  evt = evt || window.event;
-  let isEscape = false;
-  if ('key' in evt) {
-    isEscape = evt.key === 'Escape' || evt.key === 'Esc';
-  } else {
-    isEscape = evt.keyCode === 27;
-  }
-  if (isEscape && modal.style.display === 'block') {
-    modal.style.display = 'none';
-  }
-};
 
-window.onclick = function (event) {
+const backdrop = document.getElementById('close-modal');
+
+backdrop.addEventListener('click', event => {
+  console.log('111 event.target ', event.target);
+  console.log('111 backdrop ', backdrop);
+  if (event.target == backdrop) {
+    console.log('!!! ');
+    modal.classList.remove('open');
+    localStorage.removeItem('modalCardData');
+  }
+});
+
+window.onclick = event => {
   let modal = document.getElementById('info-modal');
 
   if (event.target == modal) {
     modal.classList.remove('open');
+    localStorage.removeItem('modalCardData');
   }
 };
 
@@ -41,13 +35,14 @@ window.onload = () => {
   console.log('movieListItems', movieListItems);
   movieListItems.addEventListener('click', e => {
     const cardData = { ...e.target.dataset };
-    console.log('£££££££ ', cardData);
-    localStorage.setItem('modalCardData', cardData);
+    console.log('bla ', cardData);
+    localStorage.setItem('modalCardData', JSON.stringify(cardData));
     openModal();
   });
 };
 
-function openModal() {
-  let modal = document.getElementById('info-modal');
+const openModal = () => {
+  const modal = document.getElementById('info-modal');
   modal.classList.add('open');
-}
+  modalFunctions.getInitialModalData();
+};
