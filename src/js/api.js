@@ -16,7 +16,14 @@ async function fetchPopularMovies(page) {
 
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
+  return data;
+}
+async function fetchTodayPopularMovies() {
+  const url = new URL(`${BASE_URL}/trending/movie/day`);
+  url.searchParams.append('api_key', API_KEY);
+
+  const response = await fetch(url);
+  const data = await response.json();
   return data;
 }
 // `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}&adult=false`;
@@ -76,6 +83,7 @@ async function fetchGenres() {
 //Експорт запитів
 export {
   fetchPopularMovies,
+  fetchTodayPopularMovies,
   fetchMoviesByQuery,
   fetchMovieById,
   fetchTrailerById,
@@ -89,4 +97,3 @@ export {
 // 2. Зберегти в змінних ключ та URL.
 // 3. Створити та експортувати асинхронні запити по:
 // трендах, ключовому слові, інфо фільму, інфо відео, масив фільмів.
-

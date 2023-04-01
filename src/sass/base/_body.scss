@@ -69,7 +69,7 @@ a:not([class]) {
   }
 
   @media screen and (min-width: $tablet) {
-    width: $tablet;
+    width: 768px;
     // padding: 0 32px;
   }
 

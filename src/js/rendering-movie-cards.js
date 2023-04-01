@@ -3,46 +3,22 @@
 
 // ТУТ ПРАЦЮЄ ОЛЕКСАНДР ГАЙДУК
 
-// import { fetchPopularMovies } from './api';
-// import { renderGallery } from './create-gallery-markup';
-// const moviesEl = document.querySelector('.movies');
+import { fetchPopularMovies } from './api';
+import { renderGallery } from './create-gallery-markup';
+import { renderPaginationMarkup, state } from './pagination';
+export const moviesEl = document.querySelector('.movies');
+state.currentPage = 1;
 
-// function renderMovies(data) {
-//   const moviesEl = document.querySelector('.movies');
-//   data.results.forEach(movie => {
-//     const movieEl = document.createElement('li');
-//     movieEl.classList.add('movie');
-//     movieEl.dataset.id = movie.id;
-//     movieEl.innerHTML = `
-//     <div class="movie__cover-inner">
-//         <img
-//           src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"
-//           class="movie__cover"
-//           alt="${movie.title}"
-//         />
-//         <div class="movie__cover--darkened"></div>
-//     </div>
-//       <div class="movie__info">
-//         <div class="movie__title">${movie.title}</div>
-//         <div class="movie__genre">${movie.genre_ids.map(
-//           genre => ` ${genre}`
-//         )}</div>
+fetchPopularMovies(state.currentPage)
+  .then(res => {
+    const { results, total_pages } = res;
+    state.totalPages = total_pages;
+    if (state.totalPages > 1) {
+      renderPaginationMarkup();
+    }
 
-//         <div class="movie__average">${movie.vote_average.toFixed(1)}</div>
-
-//       </div>`;
-//     moviesEl.appendChild(movieEl);
-//   });
-// }
-// fetchPopularMovies(1).then(res => {
-//   renderMovies(res);
-// });
-
-// fetchPopularMovies(2)
-//   .then(res => {
-//     const obj = res.results;
-//     return renderGallery(obj);
-//   })
-//   .then(res => {
-//     moviesEl.insertAdjacentHTML('beforeend', res);
-//   });
+    return renderGallery(results);
+  })
+  .then(res => {
+    moviesEl.insertAdjacentHTML('beforeend', res);
+  });
