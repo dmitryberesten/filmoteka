@@ -14,9 +14,9 @@
     justify-content: center;
   }
 
-  // @media screen and (min-width: $desktop) {
-  //   justify-content: flex-start;
-  // }
+  @media screen and (min-width: $desktop) {
+    justify-content: flex-start;
+  }
 }
 
 .movie_list_item {
