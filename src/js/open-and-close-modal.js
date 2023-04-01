@@ -1,4 +1,7 @@
 import * as modalFunctions from './loading-into-modal';
+import { getFromStorage, localStorageKeys } from './local-storage';
+import { refs } from './refs';
+import { state } from './state';
 
 const modal = document.getElementById('info-modal');
 
@@ -12,10 +15,10 @@ window.addEventListener('keydown', event => {
 const backdrop = document.getElementById('close-modal');
 
 backdrop.addEventListener('click', event => {
-  console.log('111 event.target ', event.target);
-  console.log('111 backdrop ', backdrop);
+  // console.log('111 event.target ', event.target);
+  // console.log('111 backdrop ', backdrop);
   if (event.target == backdrop) {
-    console.log('!!! ');
+    // console.log('!!! ');
     modal.classList.remove('open');
     localStorage.removeItem('modalCardData');
   }
@@ -32,12 +35,33 @@ window.onclick = event => {
 
 window.onload = () => {
   const movieListItems = document.getElementsByClassName('movies')[0];
-  console.log('movieListItems', movieListItems);
+  // console.log('movieListItems', movieListItems);
   movieListItems.addEventListener('click', e => {
     const cardData = { ...e.target.dataset };
-    console.log('bla ', cardData);
+
+    ////buttons
+    state.activeFilm = cardData;
+    ////buttons
+
+    // console.log('bla ', cardData);
     localStorage.setItem('modalCardData', JSON.stringify(cardData));
     openModal();
+
+    //buttons
+    const watchedFilms = getFromStorage(localStorageKeys.WATCHED) || [];
+    const queueFilms = getFromStorage(localStorageKeys.QUEUE) || [];
+
+    if (watchedFilms.find(film => film.id === state.activeFilm.id)) {
+      refs.addToWatchedBtn.innerText = 'REMOVE FROM WATCHED';
+    } else {
+      refs.addToWatchedBtn.innerText = 'ADD TO WATCHED';
+    }
+    if (queueFilms.find(film => film.id === state.activeFilm.id)) {
+      refs.addToQueueBtn.innerText = 'REMOVE FROM QUEUE';
+    } else {
+      refs.addToQueueBtn.innerText = 'ADD TO QUEUE';
+    }
+    //buttons
   });
 };
 
