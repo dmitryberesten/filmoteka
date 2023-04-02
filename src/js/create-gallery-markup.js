@@ -61,6 +61,7 @@ export async function renderGallery(movies) {
         data-popularity="${popularity}"
         data-vote_count="${vote_count}"
         data-overview="${overview}"
+        data-release_date="${release_date}"
       ></div>
         <img class="movie_list_image" src=${poster} alt='Poster ${original_title}' loading='lazy' />
         <div class='movie-info'>
