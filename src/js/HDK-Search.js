@@ -7,9 +7,13 @@ const inputEl = document.querySelector('.form-input');
 
 searchFormEl.addEventListener('submit', e => {
   e.preventDefault();
+  if (!inputEl.value.trim()) {
+    return;
+  }
+
   moviesEl.innerHTML = '';
 
-  fetchMoviesByQuery(inputEl.value, 1)
+  fetchMoviesByQuery(inputEl.value.trim(), 1)
     .then(res => {
       const obj = res.results;
       return renderGallery(obj);
