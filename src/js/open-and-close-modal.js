@@ -15,10 +15,7 @@ window.addEventListener('keydown', event => {
 const backdrop = document.getElementById('close-modal');
 
 backdrop.addEventListener('click', event => {
-  // console.log('111 event.target ', event.target);
-  // console.log('111 backdrop ', backdrop);
   if (event.target == backdrop) {
-    // console.log('!!! ');
     modal.classList.remove('open');
     localStorage.removeItem('modalCardData');
   }
@@ -35,15 +32,15 @@ window.onclick = event => {
 
 window.onload = () => {
   const movieListItems = document.getElementsByClassName('movies')[0];
-  // console.log('movieListItems', movieListItems);
   movieListItems.addEventListener('click', e => {
     const cardData = { ...e.target.dataset };
-
+    if (!Object.keys(cardData).length) {
+      return;
+    }
     ////buttons
     state.activeFilm = cardData;
     ////buttons
 
-    // console.log('bla ', cardData);
     localStorage.setItem('modalCardData', JSON.stringify(cardData));
     openModal();
 
@@ -67,6 +64,7 @@ window.onload = () => {
 
 const openModal = () => {
   const modal = document.getElementById('info-modal');
+
   modal.classList.add('open');
   modalFunctions.getInitialModalData();
 };
