@@ -32,7 +32,7 @@ window.onclick = event => {
 
 window.onload = () => {
   const movieListItems = document.getElementsByClassName('movies')[0];
-  movieListItems.addEventListener('click', e => {
+  movieListItems?.addEventListener('click', e => {
     const cardData = { ...e.target.dataset };
     if (!Object.keys(cardData).length) {
       return;

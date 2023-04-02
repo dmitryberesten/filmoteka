@@ -10,4 +10,6 @@ export const refs = {
   btnWrapper: document.querySelector('#buttonWrapper'),
   addToWatchedBtn: document.querySelector('.add-to-watched-btn'),
   addToQueueBtn: document.querySelector('.add-to-queue-btn'),
+  moviesLib: document.querySelector('.movies-lib'),
+  watchedQueueBtnBlock: document.querySelector('.buttons-block'),
 };

@@ -7,6 +7,9 @@ body {
   line-height: $primary-line-height;
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 // body::-webkit-scrollbar {
