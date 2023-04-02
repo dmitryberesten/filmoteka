@@ -7,7 +7,7 @@ const srcTrailer = 'https://www.youtube.com/embed/';
 
 const modal = basicLightbox.create(`
   <iframe width="900" height="600" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<button class="close-modal__trailer">     
+<button class="close-modal__trailer">
      </button>`);
 const iframeTrailer = modal.element().querySelector('iframe');
 
@@ -50,3 +50,4 @@ async function findTrailer(idCard) {
 }
 const trailerBtn = document.querySelector('.trailer-btn');
 trailerBtn.addEventListener('click', openTrailer);
+
