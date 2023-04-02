@@ -4,6 +4,8 @@
 
 foterLink: document.querySelector('.footer__link');
 export const refs = {
+  form: document.querySelector('.header-search-form'),
+  loader: document.querySelector('.loader'),
   pagination: document.querySelector('.pagination'),
   slider: document.querySelector('.swiper-wrapper'),
   btnWrapper: document.querySelector('#buttonWrapper'),

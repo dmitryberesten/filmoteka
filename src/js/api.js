@@ -1,5 +1,5 @@
-let page;
-let query;
+export let page;
+export let query;
 
 //основа для запиту
 const BASE_URL = 'https://api.themoviedb.org/3';

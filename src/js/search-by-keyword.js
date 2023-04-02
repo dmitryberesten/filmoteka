@@ -1,10 +1,14 @@
 import refs from './refs';
-import { getByKeyword } from './api';
+import { fetchMoviesByQuery } from './api';
 import { createGalleryMarkup } from './create-gallery-markup';
-import { createPagination } from './pagination';
+import { paginate } from './pagination';
 import { showHideLoader } from './loader';
 
-refs.form.addEventListener('submit', onSearchByKeyword);
+
+if (typeof (form) !== 'undefined') {
+    refs.form.addEventListener('submit', onSearchByKeyword);
+}
+
 let query;
 
 function onSearchByKeyword(e) {
@@ -30,7 +34,7 @@ function onSearchByKeyword(e) {
     refs.pagination.style.display = 'block';
   }
 
-  getByKeyword(query, page)
+  fetchMoviesByQuery(query, page)
     .then(data => {
       showHideLoader(refs.loader);
       if (!data.total_results) {
@@ -44,12 +48,12 @@ function onSearchByKeyword(e) {
       }
       refs.gallery.innerHTML = createGalleryMarkup(data.results);
 
-      const pagination = createPagination(data.total_results, data.total_pages);
+      const pagination = paginate(data.total_results, data.total_pages);
 
       pagination.on('beforeMove', ({ page }) => {
         showHideLoader(refs.loader);
         refs.gallery.innerHTML = '';
-        getByKeyword(query, page).then(data => {
+        fetchMoviesByQuery(query, page).then(data => {
           showHideLoader(refs.loader);
           refs.gallery.innerHTML = createGalleryMarkup(data.results);
           scrollOnTop();
