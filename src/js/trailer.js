@@ -3,8 +3,8 @@ import { fetchTrailerById } from './api';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 export const openTrailer = async evt => {
-  evt.preventDefault();
-  if (evt.target.nodeName !== 'A') return;
+  // evt.preventDefault();
+  // if (evt.target.nodeName !== 'A') return;
   try {
     const { results } = await fetchTrailerById(evt.target.dataset.id);
     const { key } = results[0];
@@ -15,7 +15,7 @@ export const openTrailer = async evt => {
     };
     const instance = basicLightbox.create(
       `<iframe class="youtube-frame" width="900" height="600" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<button class="close-modal__trailer">     
+<button class="close-modal__trailer">
      </button>`,
       {
         onShow: () => {
