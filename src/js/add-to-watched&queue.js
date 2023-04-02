@@ -1,7 +1,3 @@
-// РЕКОМЕНДАЦІЇ
-// 1. Імпортувати функції з LocalStoradge.
-// 2. Створити та експортувати функцію яка дадає фільм до перегляду.
-
 import {
   getFromStorage,
   localStorageKeys,
@@ -9,8 +5,6 @@ import {
 } from './local-storage';
 import { refs } from './refs';
 import { state } from './state';
-
-// 3. Створити та експортувати функцію яка дадає фільм до черги.
 
 // export let activeFilm;
 

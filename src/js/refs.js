@@ -1,9 +1,5 @@
-// РЕКОМЕНДАЦІЇ
-// 1. Створити константу refs з DOM елементами.
-// 2. Експортувати константу refs.
-
-foterLink: document.querySelector('.footer__link');
 export const refs = {
+  foterLink: document.querySelector('.footer__link'),
   form: document.querySelector('.header-search-form'),
   pagination: document.querySelector('.pagination'),
   slider: document.querySelector('.swiper-wrapper'),

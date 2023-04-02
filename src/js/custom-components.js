@@ -1,5 +1,4 @@
 //-----------------------------HORYZONTAL-INDICATOR-----------------------------//
-
 window.onscroll = function () { myFunction() };
 
 function myFunction() {
@@ -8,11 +7,9 @@ function myFunction() {
     var scrolled = (winScroll / height) * 100;
     document.getElementById("myBar").style.width = scrolled + "%";
 }
-
 //-----------------------------HORYZONTAL-INDICATOR-----------------------------//
 
 //--------------------------------CUSTOM-ANCHOR---------------------------------//
-
 //Make sure the user has scrolled at least double the height of the browser
 var toggleHeight = $(window).outerHeight() * 1.2;
 
@@ -36,5 +33,4 @@ function setScrollToUp() {
         behavior: "smooth"
     })
 };
-
 //------------------------------CUSTOM-ANCHOR-END-------------------------------//

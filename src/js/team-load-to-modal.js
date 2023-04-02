@@ -1,8 +1,3 @@
-// РЕКОМЕНДАЦІЇ
-// 1. Створити модалку команди.
-// 2. Рендер розмітки модалки.
-// 2. Додати логіку показу/закриття по бекдропу та ESCAPE.
-
 const refs = {
     openModal: document.querySelector('.open-modal-team'),
     closeModal: document.querySelector('.close-modal-team'),
@@ -30,7 +25,7 @@ function closeModalTeam(event) {
       closeModalTeam();
     }
   }
-  
+
   function onBackdropClose(event) {
     if (event.target === refs.teamBackdrop) {
       closeModalTeam();

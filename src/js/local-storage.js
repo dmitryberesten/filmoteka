@@ -1,7 +1,3 @@
-// РЕКОМЕНДАЦІЇ
-// 1. Зберігати ключі в константах.
-// 2. Використовувати в назвах функцій ключові слова get, set.
-
 export const setToLocalStorage = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
