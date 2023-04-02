@@ -24,7 +24,6 @@ export function getGenres(arrayId, genres) {
 
 export async function renderGallery(movies) {
   const genres = await fetchGenres();
-  console.log('MOV', movies);
   return movies
     .map(
       ({

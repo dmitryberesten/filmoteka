@@ -10,17 +10,25 @@ export const getInitialModalData = () => {
   const origTitle = document.getElementById('origTitle');
   const genre = document.getElementById('genre');
 
-  filmImg.src = `${cardData.poster_path}`;
-  filmTitle.innerText = `${cardData.title}`;
-  about.innerText = `${cardData.overview}`;
+  filmImg.src = cardData.poster_path ? `${cardData.poster_path}` : 'N/A';
+  filmTitle.innerText = cardData.title ? `${cardData.title}` : 'N/A';
+  about.innerText = cardData.overview ? `${cardData.overview}` : 'N/A';
   averageElement.className = 'average';
   countElement.className = 'count';
-  averageElement.innerText = `${(cardData.vote_average * 1).toFixed(1)}`;
-  countElement.innerText = `/ ${cardData.vote_count}`;
+  averageElement.innerText = cardData.vote_average
+    ? `${(cardData.vote_average * 1).toFixed(1)}`
+    : 'N/A';
+  countElement.innerText = cardData.vote_count
+    ? `/ ${cardData.vote_count}`
+    : 'N/A';
 
   votes.append(averageElement, countElement);
 
-  popul.innerText = `${(cardData.popularity * 1).toFixed(1)}`;
-  origTitle.innerText = `${cardData.original_title}`;
-  genre.innerText = `${cardData.genre_ids}`;
+  popul.innerText = cardData.popularity
+    ? `${(cardData.popularity * 1).toFixed(1)}`
+    : 'N/A';
+  origTitle.innerText = cardData.original_title
+    ? `${cardData.original_title}`
+    : 'N/A';
+  genre.innerText = cardData.genre_ids ? `${cardData.genre_ids}` : 'N/A';
 };
