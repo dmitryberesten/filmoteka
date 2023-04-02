@@ -4,43 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
-    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link
-      rel="stylesheet"
-      href="../node_modules/basiclightbox/dist/basicLightbox.min.css"
-    />
-  </head>
+    <link rel="icon" href="./images/fav-icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./sass/index.scss" />
+  <link rel="stylesheet" href="../node_modules/basiclightbox/dist/basicLightbox.min.css">
+</head>
 
-  <body>
-    <!-- Header -->
-    <include src="./partials/header-main.html"></include>
+<body>
 
-    <main class="main">
-      <!-- Custom components  -->
-      <include src="./partials/custom-components.html"></include>
+  <!-- Header -->
+  <include src="./partials/header-main.html"></include>
 
-      <!-- Gallery  -->
-      <include src="./partials/gallery.html"></include>
+  <main class="main">
 
-      <!-- Modal form  -->
-      <include src="./partials/modal-film.html"></include>
-      <include src="./partials/trailer.html"></include>
-      <include src="./partials/loader.html"></include>
-    </main>
+    <!-- Custom components  -->
+    <include src="./partials/custom-components.html"></include>
 
-    <!-- Paginaton -->
-    <include src="./partials/pagination.html"></include>
-    <!-- Footer -->
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modal-team.html"></include>
+    <!-- Gallery  -->
+    <include src="./partials/gallery.html"></include>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.4.min.js"
-      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-      crossorigin="anonymous"
-    ></script>
+    <!-- Modal form  -->
+    <include src="./partials/modal-film.html"></include>
+    <include src="./partials/trailer.html"></include>
+    <include src="./partials/loader.html"></include>
 
-    <script type="module" src="./index.js"></script>
-  </body>
+  </main>
+
+  <!-- Paginaton -->
+  <include src="./partials/pagination.html"></include>
+  <!-- Footer -->
+  <include src="./partials/footer.html"></include>
+  <include src="./partials/modal-team.html"></include>
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous">
+  </script>
+
+  <script type="module" src="./index.js"></script>
+</body>
 </html>
