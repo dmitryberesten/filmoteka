@@ -1,99 +1,63 @@
-# Parcel template
+<h1 align="center"> 👨‍💻 GOIT Team Project 👩‍💻 </h1>
+<h2 align="center">  FILMOTEKA 🎥 </h2>
+<h3 align="center">  Group 68 | Team 4 </h3>
 
-Этот проект был создан при помощи Parcel. Для знакомства и настройки
-дополнительных возможностей [обратись к документации](https://parceljs.org/).
+<span align="center">
 
-## Подготовка нового проекта
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
+![SASS](https://img.shields.io/badge/-SASS-05122A?style=flat&logo=SASS&logoColor=ff69b4)&nbsp;
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Склонируй этот репозиторий.
-3. Измени имя папки с `parcel-project-template` на имя своего проекта.
-4. Создай новый пустой репозиторий на GitHub.
-5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
-6. Установи зависимости проекта в терминале командой `npm install` .
-7. Запусти режим разработки, выполнив команду `npm start`.
-8. Перейди в браузере по адресу [http://localhost:1234](http://localhost:1234).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
+![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)&nbsp;
+![Figma](https://img.shields.io/badge/-Figma-05122A?style=flat&logo=figma)&nbsp;
 
-## Файлы и папки
+![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC)&nbsp;
 
-- Все паршалы файлов стилей должны лежать в папке `src/sass` и импортироваться в
-  файлы стилей страниц. Например, для `index.html` файл стилей называется
-  `index.scss`.
-- Изображения добавляй в папку `src/images`. Сборщик оптимизирует их, но только
-  при деплое продакшн версии проекта. Все это происходит в облаке, чтобы не
-  нагружать твой компьютер, так как на слабых машинах это может занять много
-  времени.
+</span>
 
-## Деплой
+<h3 align="center"> ℹ️ &nbsp; The sWitchers Developers Team   🚀 <h3>
+<span align="center">
 
-Для настройки деплоя проекта необходимо выполнить несколько дополнительных шагов
-по настройке твоего репозитория. Зайди во вкладку `Settings` и в подсекции
-`Actions` выбери выбери пункт `General`.
+<a align="center" href="https://github.com/dmitryberesten">![GitHub](https://img.shields.io/badge/-Dima-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/MaksymMyhulia">![GitHub](https://img.shields.io/badge/-Maksym-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Inna-Mykytiuk">![GitHub](https://img.shields.io/badge/-Inna-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/AlexandrHaiduk">![GitHub](https://img.shields.io/badge/-Oleksandr-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/IrynaBondarenko7">![GitHub](https://img.shields.io/badge/-Iryna-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Crash-afftar">![GitHub](https://img.shields.io/badge/-Oleksandr-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/yulka-pulka">![GitHub](https://img.shields.io/badge/-Julia-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/VladyslavaDvorovenko">![GitHub](https://img.shields.io/badge/-Vladyslava-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Universe2022">![GitHub](https://img.shields.io/badge/-Svitlana-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/YuliyaBondG">![GitHub](https://img.shields.io/badge/-Julia-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/YanaKholod">![GitHub](https://img.shields.io/badge/-Yana-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/MisterF1x">![GitHub](https://img.shields.io/badge/-Oleksandr-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/MihailLeontev">![GitHub](https://img.shields.io/badge/-Mihail-05122A?style=flat&logo=github)</a>
 
-![GitHub actions settings](./assets/actions-config-step-1.png)
+</span>
 
-Пролистай страницу до последней секции, в которой убедись что выбраны опции как
-на следующем изображении и нажми `Save`. Без этих настроек у сборки будет
-недостаточно прав для автоматизации процесса деплоя.
+## Description
 
-![GitHub actions settings](./assets/actions-config-step-2.png)
+The project is implemented in Vanilla JavaScript and working with:
 
-Продакшн версия проекта будет автоматически собираться и деплоиться на GitHub
-Pages, в ветку `gh-pages`, каждый раз когда обновляется ветка `main`. Например,
-после прямого пуша или принятого пул-реквеста. Для этого необходимо в файле
-`package.json` отредактировать поле `homepage` и скрипт `build`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+🛠 [the Movie Database TMDB](https://www.themoviedb.org/);
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/",
-"scripts": {
-  "build": "parcel build src/*.html --public-url /your_repo_name/"
-},
-```
+🛠 responsive design for use on phone 📱, tablet 📟 and desktop 💻.
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+We are students of the FullStack Developer course [<img src="https://img.shields.io/badge/Go-IT-orange" />](https://goit.ua), the project is written at the end of the study of JavaScript.
 
-### Статус деплоя
 
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
+## How to use Filmoteka?
 
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
+📽 It is the site for searching and collecting movies.
 
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
 
-![Deployment status](./assets/status.png)
+**The Web App provides the following functions:**
 
-### Живая страница
+🎞 search movie by a key word;
 
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
+🎞 manage your film database by adding or deleting chosen movie to WATCHED or to QUEUE;
 
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` или скрипта `build` в
-файле `package.json`.
+🎞 pagination allows you to easily navigate between movies;
 
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+🎞 in LIBRARY you can see your database of movies divided by 2 categories: WATCHED and QUEUE.
