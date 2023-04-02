@@ -236,3 +236,33 @@
     max-width: 90%;
   }
 }
+// Трейлер
+.img-posters {
+  position: relative;
+  transition: 0.4s;
+}
+.trailer-btn {
+  position: absolute;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: none;
+  color: #f2936d;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img-posters:hover,
+.img-posters:focus {
+  .trailer-btn {
+    color: #ff6b08;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
