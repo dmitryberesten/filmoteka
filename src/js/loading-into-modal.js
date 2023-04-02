@@ -15,12 +15,12 @@ export const getInitialModalData = () => {
   about.innerText = `${cardData.overview}`;
   averageElement.className = 'average';
   countElement.className = 'count';
-  averageElement.innerText = `${(cardData.vote_average * 1).toFixed(2)}`;
+  averageElement.innerText = `${(cardData.vote_average * 1).toFixed(1)}`;
   countElement.innerText = `/ ${cardData.vote_count}`;
 
   votes.append(averageElement, countElement);
 
-  popul.innerText = `${cardData.popularity}`;
+  popul.innerText = `${(cardData.popularity * 1).toFixed(1)}`;
   origTitle.innerText = `${cardData.original_title}`;
   genre.innerText = `${cardData.genre_ids}`;
 };
