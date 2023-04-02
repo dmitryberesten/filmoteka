@@ -27,7 +27,7 @@
     width: 35px;
      height: 35px;
      text-decoration: none;
-     border-color:#f3e0a7;
+     border: none;
     fill: rgb(64, 60, 60);
     background: none;
      padding: 4px;
@@ -55,7 +55,7 @@
      top: 30px;
      margin: 0;
      padding: 7px;
-    background-color: #f3e0a7;
+    background-color: #f7f7f7;
     transition: transform 250ms cubic-bezier(.4,0,.2,1);
     transform: translateX(-50%) scale(1);
     overflow-y: scroll;
@@ -135,7 +135,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 188px;
+    width: 230px;
    transition: transform 250ms cubic-bezier(4,0,2,1);
   
    &:hover,
@@ -144,7 +144,7 @@
    }
   
     @media screen and (min-width: 768px) {
-      width: 200px;
+      // width: 200px;
     &:hover,
     &:focus {
     transform: scale(1.3);
@@ -163,6 +163,7 @@
   height: 80px;
   border: 2px solid #f3e0a7;
   margin: auto;
+  border-radius: 20px;
   
   @media screen and (min-width: 768px) {
    height: 100px;
