@@ -32,7 +32,16 @@ window.onclick = event => {
 
 window.onload = () => {
   const movieListItems = document.getElementsByClassName('movies')[0];
+  const movieLib = document.getElementsByClassName('movies-lib')[0];
+
   movieListItems?.addEventListener('click', e => {
+    onMovieItemHandler(e);
+  });
+  movieLib?.addEventListener('click', e => {
+    onMovieItemHandler(e);
+  });
+
+  const onMovieItemHandler = e => {
     const cardData = { ...e.target.dataset };
     if (!Object.keys(cardData).length) {
       return;
@@ -59,7 +68,7 @@ window.onload = () => {
       refs.addToQueueBtn.innerText = 'ADD TO QUEUE';
     }
     //buttons
-  });
+  };
 };
 
 const openModal = () => {
