@@ -1,4 +1,4 @@
-import refs from './refs';
+// import refs from './refs';
 import { fetchMoviesByQuery } from './api';
 import { createGalleryMarkup } from './create-gallery-markup';
 import { paginate } from './pagination';
