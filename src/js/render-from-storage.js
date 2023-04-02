@@ -70,6 +70,7 @@ function renderMoviesList(movies) {
         data-vote_average="${vote_average}"
         data-popularity="${popularity}"
         data-vote_count="${vote_count}"
+        data-genre_ids="${genre_ids}"
         data-overview="${overview}"
       ></div>
         <img class="movie_list_image" src=${poster} alt='Poster ${original_title}' loading='lazy' />
