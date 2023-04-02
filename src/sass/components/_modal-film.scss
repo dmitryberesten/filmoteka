@@ -50,7 +50,7 @@
 
 #modal {
   background-color: #fff;
-  margin: 5% auto;
+  margin: 0 auto;
   position: relative;
   padding: 40px 12px;
   width: 100%;
@@ -65,7 +65,6 @@
   width: auto;
   border-radius: 5px;
 }
-
 #content {
   display: flex;
   align-items: start;
@@ -81,6 +80,10 @@
   line-height: 16px;
   color: #8c8c8c;
   margin-bottom: 8px;
+}
+.left-descr-content:last-child {
+  margin-bottom:0;
+
 }
 
 .average {
@@ -105,9 +108,7 @@
 }
 
 #left-content {
-  max-width: 50%;
   height: auto;
-  margin-right: 16px;
   img {
     width: 375px;
     height: 478px;
@@ -129,6 +130,7 @@
   width: 100%;
   height: auto;
   border-radius: 5px;
+  object-fit: contain;
 }
 
 #film-title {
@@ -141,7 +143,8 @@
 }
 
 #description {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+
 }
 
 #votes,
@@ -154,6 +157,7 @@
 #about {
   margin-bottom: 20px;
   font-weight: 500;
+  line-height: 20px;
 }
 
 #buttonWrapper {
@@ -202,40 +206,65 @@
     min-width: 136px;
   }
 }
-@media (max-width: 450px) {
+@media screen and (max-width: 992px) {
+  #modal {
+    width: 704px;
+    padding: 40px 36px;
+  }
+  #left-content img {
+    width: 264px;
+    height: 373.55px;
+   }
+   #right-content {
+    margin-left: 66px;
+}
+#film-title {
+  font-size: 20px;
+  line-height: 23.44px;
+}
+}
+
+@media screen and (max-width: 767px) {
   #movie-card {
     overflow: hidden;
   }
   #content {
-    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    max-height: 460px;
     overflow-y: scroll;
-    padding: 10px 20px;
   }
-
+  #film-title{
+    font-size: 20px;
+    line-height: 23.44px;
+  }
   #left-content,
   #right-content {
     width: 100%;
     max-width: 100%;
     margin: 0;
+
+  }
+  #right-content{
+    padding:0;
+    margin-top: 20px;
+
   }
   #left-content img {
-    width: auto;
-    height: auto;
-  }
+    width: 240px;
+    height: 357px;
+    }
   #film-img {
     margin: 0 auto;
   }
-  #content {
-    display: flex;
-    flex-direction: column;
-  }
+  #modal {
+    max-width: 320px;
+    padding: 48px 20px;
 }
 
-@media (max-width: 992px) {
-  #modal {
-    max-width: 90%;
-  }
+
 }
+
 // Трейлер
 .img-posters {
   position: relative;
