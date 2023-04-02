@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import { API_KEY } from './api';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
+
 const srcTrailer = 'https://www.youtube.com/embed/';
 
 const modal = basicLightbox.create(`
@@ -39,6 +40,7 @@ export default function openTrailer(id) {
       console.log(error);
     });
 }
+
 
 async function findTrailer(idCard) {
   const respons = await fetch(
