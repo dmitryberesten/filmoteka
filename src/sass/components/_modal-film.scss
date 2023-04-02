@@ -124,13 +124,15 @@
   font-size: 16px;
   line-height: 1.5;
   text-align: justify;
+  margin-right: 12px;
+  margin-left: 16px;
 }
 
 #film-img {
   width: 100%;
   height: auto;
   border-radius: 5px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 #film-title {
