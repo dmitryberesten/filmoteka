@@ -52,7 +52,8 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     border: none;
     background-color: #ff6b08;
     box-shadow: 0 0 15px #ff6b08;

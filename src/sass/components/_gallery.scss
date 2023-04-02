@@ -5,7 +5,8 @@
   padding: 60px 0;
 }
 
-.movies {
+.movies,
+.movies-lib {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -103,4 +104,10 @@
 .movie__cover--darkened:hover {
   background-color: grey;
   cursor: pointer;
+}
+
+.watched-warning {
+  color: #666;
+  font-size: 23px;
+  margin: 0 auto;
 }
