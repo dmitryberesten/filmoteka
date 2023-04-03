@@ -1,8 +1,21 @@
 import * as basicLightbox from 'basiclightbox';
-import { API_KEY } from './api';
+import { API_KEY, fetchTrailerById, BASE_URL } from './api';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { filmId } from './loading-into-modal';
 
 const srcTrailer = 'https://www.youtube.com/embed/';
+const trailerBtn = document.querySelector('.trailer-btn');
+
+const closeModalHandler = (e) => {
+  if (e.code === "Escape") {
+    modal.close();
+  }
+  window.removeEventListener("keydown", closeModalHandler);
+};
+
+trailerBtn.addEventListener('click', () => {
+  openTrailer(filmId);
+});
 
 const modal = basicLightbox.create(`
   <iframe width="900" height="600" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -15,37 +28,19 @@ const modal2 = basicLightbox.create(`
       `);
 
 export default function openTrailer(id) {
-  findTrailer(id)
-    .then(data => {
+  fetchTrailerById(id)
+    .then((data) => {
       const key = data.results[0].key;
 
       iframeTrailer.src = srcTrailer + key;
       modal.show();
 
-      const closeBtn = document.querySelector('.close-modal__trailer');
-      closeBtn.addEventListener('click', closeModal);
-      const closeModal = e => {
-        if (e.code === 'Escape') {
-          instance.close();
-        }
-        window.removeEventListener('keydown', closeModalHandler);
-      };
+      const closeBtn = document.querySelector(".close-modal__trailer");
+      closeBtn.addEventListener("click", closeModalHandler);
+      window.addEventListener("keydown", closeModalHandler);
     })
-    .catch(error => {
-      //   const modal = basicLightbox.create(`
-      // <iframe width="860" height="615" src="${srcTrailer}6DhiiFGk4_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      //   `);
+    .catch((error) => {
       modal2.show();
       console.log(error);
     });
 }
-
-async function findTrailer(idCard) {
-  const respons = await fetch(
-    `https://api.themoviedb.org/3/movie/${idCard}/videos?api_key=${API_KEY}&language=en-US`
-  );
-  return await respons.json();
-}
-const trailerBtn = document.querySelector('.trailer-btn');
-trailerBtn.addEventListener('click', openTrailer);
-
