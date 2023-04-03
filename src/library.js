@@ -1,5 +1,6 @@
 import { page } from './js/api';
 import './js/api';
+import './js/sound';
 import * as customComponent from './js/custom-components';
 import './js/trailer';
 import './js/loader';
