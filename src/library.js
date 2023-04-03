@@ -9,12 +9,18 @@ import * as renderingFromStorage from './js/render-from-storage';
 import './js/team-load-to-modal';
 import './js/open-and-close-modal';
 import { refs } from './js/refs';
-import { onBtnAddToLibrary } from './js/add-to-watched&queue';
-import { onBtnPageClick } from './js/pagination';
+
+import {
+  onBtnAddToLibrary,
+  updateMarkupLibrary,
+} from './js/add-to-watched&queue';
+
 window.addEventListener('load', renderingFromStorage.loadFromStorageWatched);
 refs.watchedQueueBtnBlock.addEventListener(
   'click',
   renderingFromStorage.onClickWatched
 );
 refs.btnWrapper.addEventListener('click', onBtnAddToLibrary);
+refs.btnWrapper.addEventListener('click', updateMarkupLibrary);
 refs.pagination.addEventListener('click', onBtnPageClick);
+
