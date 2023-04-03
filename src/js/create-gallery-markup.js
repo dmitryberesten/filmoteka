@@ -47,7 +47,7 @@ export async function renderGallery(movies) {
       <div href="" class='movie_list_link link' id=${id}>
       <div class="movie__cover--darkened"
         data-id="${id}"
-        data-poster_path="${poster}"
+        data-poster_path="${poster_path}"
         data-title="${title}"
         data-genre_ids="${checkGenres}"
         data-original_title="${original_title}"
@@ -67,7 +67,7 @@ export async function renderGallery(movies) {
             </p>
             <div class="movie__average movie__average--${getClassByRate(
               vote_average
-            )}">${vote_average.toFixed(1)}</div>
+            )}">${Number(vote_average).toFixed(1)}</div>
         </div>
         </div>
       </li>

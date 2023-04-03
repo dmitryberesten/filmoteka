@@ -17,7 +17,9 @@ export const getInitialModalData = () => {
   trailerBtn.dataset.filmId = cardData.id;
   filmId = cardData.id;
 
-  filmImg.src = cardData.poster_path ? `${cardData.poster_path}` : 'N/A';
+  filmImg.src = cardData.poster_path
+    ? `https://image.tmdb.org/t/p/w500${cardData.poster_path}`
+    : 'N/A';
   filmTitle.innerText = cardData.title ? `${cardData.title}` : 'N/A';
   about.innerText = cardData.overview ? `${cardData.overview}` : 'N/A';
   averageElement.className = 'average';

@@ -38,20 +38,22 @@ const whatPaginated = async where => {
       }
       break;
     case 'local':
-      const films =
-        state.whatchedOrQueue === 'WATCHED'
-          ? getFromStorage(localStorageKeys.WATCHED) || []
-          : getFromStorage(localStorageKeys.QUEUE) || [];
-      markupGallery = localPaginate(films, state.currentPage);
-      moviesEl.insertAdjacentHTML(
-        'beforeend',
-        renderMoviesList(localPaginate(films, state.currentPage))
-      );
-
+      try {
+        const films =
+          state.whatchedOrQueue === 'WATCHED'
+            ? getFromStorage(localStorageKeys.WATCHED) || []
+            : getFromStorage(localStorageKeys.QUEUE) || [];
+        markupGallery = await renderGallery(
+          localPaginate(films, state.currentPage)
+        );
+      } catch (error) {
+        console.error(error.message);
+      }
       break;
     default:
       throw new Error(`Invalid 'where' parameter: ${where}`);
   }
+
   moviesEl.insertAdjacentHTML('beforeend', markupGallery);
 };
 const paginate = (totalPages, currentPage) => {
@@ -110,6 +112,7 @@ export const renderPaginationMarkup = () => {
 const updateCurrentPage = newPage => {
   state.currentPage = newPage;
   clearPagination();
+
   renderPaginationMarkup();
 };
 
