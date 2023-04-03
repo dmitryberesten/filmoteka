@@ -1,17 +1,58 @@
-import { fetchPopularMovies } from './api';
+import { fetchPopularMovies, fetchMoviesByQuery, query } from './api';
 import { renderGallery } from './create-gallery-markup';
+import { getFromStorage, localStorageKeys } from './local-storage';
 import { refs } from './refs';
+import { localPaginate, renderMoviesList } from './render-from-storage';
 import { moviesEl } from './rendering-movie-cards';
+import { state } from './state';
 
-export const state = {
-  currentPage: 1,
-  totalPages: 0,
-  sprite: new URL('../images/sprite.svg', import.meta.url),
-};
 const { pagination } = refs;
-
-const clearHTML = () => {
+export const resetCurrentPage = () => {
+  state.currentPage = 1;
+};
+export const clearPagination = () => {
   pagination.innerHTML = '';
+};
+const whatPaginated = async where => {
+  let markupGallery;
+  switch (where) {
+    case 'main':
+      try {
+        const { results } = await fetchPopularMovies(state.currentPage);
+        markupGallery = await renderGallery(results);
+        moviesEl.insertAdjacentHTML('beforeend', markupGallery);
+      } catch (error) {
+        console.error(error.message);
+      }
+      break;
+    case 'search':
+      try {
+        const { results } = await fetchMoviesByQuery(
+          state.query,
+          state.currentPage
+        );
+        markupGallery = await renderGallery(results);
+        moviesEl.insertAdjacentHTML('beforeend', markupGallery);
+      } catch (error) {
+        console.error(error.message);
+      }
+      break;
+    case 'local':
+      const films =
+        state.whatchedOrQueue === 'WATCHED'
+          ? getFromStorage(localStorageKeys.WATCHED) || []
+          : getFromStorage(localStorageKeys.QUEUE) || [];
+      markupGallery = localPaginate(films, state.currentPage);
+      moviesEl.insertAdjacentHTML(
+        'beforeend',
+        renderMoviesList(localPaginate(films, state.currentPage))
+      );
+
+      break;
+    default:
+      throw new Error(`Invalid 'where' parameter: ${where}`);
+  }
+  moviesEl.insertAdjacentHTML('beforeend', markupGallery);
 };
 const paginate = (totalPages, currentPage) => {
   const groupSize = 5;
@@ -34,6 +75,7 @@ const paginate = (totalPages, currentPage) => {
   };
 };
 const paginationMarkup = () => {
+  if (state.totalPages <= 1) return;
   const { pages, hasPrevGroup, hasNextGroup } = paginate(
     state.totalPages,
     state.currentPage
@@ -67,8 +109,8 @@ export const renderPaginationMarkup = () => {
 
 const updateCurrentPage = newPage => {
   state.currentPage = newPage;
-  clearHTML();
-  renderPaginationMarkup(paginationMarkup());
+  clearPagination();
+  renderPaginationMarkup();
 };
 
 const goToNextPage = () => {
@@ -107,17 +149,7 @@ export const onBtnPageClick = async evt => {
   if (evt.target.classList.contains('prev-btn')) goToPrevPage();
   if (evt.target.classList.contains('next-dots')) goToNextGroupBtn();
   if (evt.target.classList.contains('prev-dots')) goToPrevGroupBtn();
-
-  moviesEl.innerHTML = '';
-  // loader
   changePageByClick(evt);
-  try {
-    const { results } = await fetchPopularMovies(state.currentPage);
-    const markupGallery = await renderGallery(results);
-    moviesEl.insertAdjacentHTML('beforeend', markupGallery);
-  } catch (error) {
-    console.error(error.message);
-  } finally {
-    // loader
-  }
+  moviesEl.innerHTML = '';
+  whatPaginated(state.whatPaginated);
 };

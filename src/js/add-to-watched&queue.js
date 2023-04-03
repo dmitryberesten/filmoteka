@@ -10,6 +10,7 @@ import {
   onClickWatched,
   renderMoviesList,
 } from './render-from-storage';
+import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
 
 export const onBtnAddToLibrary = evt => {
@@ -32,14 +33,14 @@ export const onBtnAddToLibrary = evt => {
     );
 
     ////chang markup after remove from watched fims
-    refs.moviesLib.innerHTML = '';
-    const watchedFilmsinLocalStorage =
-      getFromStorage(localStorageKeys.WATCHED) || [];
+    // moviesEl.innerHTML = '';
+    // const watchedFilmsinLocalStorage =
+    //   getFromStorage(localStorageKeys.WATCHED) || [];
 
-    refs.moviesLib.insertAdjacentHTML(
-      'beforeend',
-      renderMoviesList(watchedFilmsinLocalStorage)
-    );
+    // moviesEl.insertAdjacentHTML(
+    //   'beforeend',
+    //   renderMoviesList(watchedFilmsinLocalStorage)
+    // );
   } else if (evt.target.innerText === 'ADD TO QUEUE') {
     saveToStorageFilm(
       queueFilmsUsersArray,
@@ -56,14 +57,14 @@ export const onBtnAddToLibrary = evt => {
     );
 
     ////chang markup after remove from queue fims
-    refs.moviesLib.innerHTML = '';
-    const queueFilmsinLocalStorage =
-      getFromStorage(localStorageKeys.QUEUE) || [];
+    // moviesEl.innerHTML = '';
+    // const queueFilmsinLocalStorage =
+    //   getFromStorage(localStorageKeys.QUEUE) || [];
 
-    refs.moviesLib.insertAdjacentHTML(
-      'beforeend',
-      renderMoviesList(queueFilmsinLocalStorage)
-    );
+    // moviesEl.insertAdjacentHTML(
+    //   'beforeend',
+    //   renderMoviesList(queueFilmsinLocalStorage)
+    // );
   }
 };
 

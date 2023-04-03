@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filmoteka</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmoteka</title>
     <link rel="icon" href="./images/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <link rel="stylesheet" href="../node_modules/basiclightbox/dist/basicLightbox.min.css" />
-</head>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/basiclightbox/dist/basicLightbox.min.css"
+    />
+  </head>
 
-<body>
+  <body>
+    <!-- Header -->
+    <include src="./partials/header-lib.html"></include>
 
-  <!-- Header -->
-  <include src="./partials/header-lib.html"></include>
+    <main class="main">
+      <!-- Custom components  -->
+      <include src="./partials/custom-components.html"></include>
 
-  <main class="main">
+      <!-- Gallery  -->
+      <include src="./partials/gallery-lib.html"></include>
 
-     <!-- Custom components  -->
-     <include src="./partials/custom-components.html"></include>
+      <!-- Modal form  -->
+      <include src="./partials/modal-film.html"></include>
+      <include src="./partials/loader.html"></include>
+    </main>
 
-    <!-- Gallery  -->
-    <include src="./partials/gallery-lib.html"></include>
+    <!-- Footer -->
+    <include src="./partials/footer.html"></include>
 
-    <!-- Modal form  -->
-    <include src="./partials/modal-film.html"></include>
-    <include src="./partials/loader.html"></include>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
 
-  </main>
-
-  <!-- Footer -->
-  <include src="./partials/footer.html"></include>
-
-  <script
-  src="https://code.jquery.com/jquery-3.6.4.min.js"
-  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-  crossorigin="anonymous">
-  </script>
-
-  <script type="module" src="./library.js"></script>
-</body>
-
+    <script type="module" src="./library.js"></script>
+  </body>
 </html>
