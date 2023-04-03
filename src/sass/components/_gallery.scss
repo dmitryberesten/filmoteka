@@ -21,6 +21,7 @@
   position: relative;
   width: 280px;
   font-size: 12px;
+  transition: scale 0.1s;
 
   @media screen and (min-width: $tablet) {
     width: 336px;
@@ -31,6 +32,10 @@
     width: 395px;
     font-size: 20px;
   }
+}
+
+.movie_list_item:hover {
+  scale: 102%;
 }
 
 .movie__cover-inner {
@@ -89,7 +94,6 @@
 }
 
 .movie__cover--darkened {
-  // background-color: #000000;
   opacity: 0.1;
   position: absolute;
   top: 0;
