@@ -7,7 +7,7 @@
     left: 0;
     //  z-index: 10;
     // background-color: rgba(223, 173, 86, 0.644);
-    overflow-y: scroll;
+    // overflow-y: scroll;
     transition: all 0.9s ease 0s;
 
   z-index: 999;
@@ -96,7 +96,7 @@
 
 
 .team__title {
-  //  margin-top: 13px;
+  padding-top: 13px;
   color: black;
   font-family: 'Roboto';
   font-style: normal;
@@ -105,17 +105,37 @@
   line-height: 35px;
   margin-bottom: 20px;
   text-align: center;
+  text-shadow: 1px 1px 1px #ccc,
+  1px -1px 1px #ccc,
+  -1px 1px 1px #ccc,
+  -1px -1px 1px #ccc;
+transition: all 1s;
   &:hover,
    &:focus {
     color: #ff6b08;
    }
 
  @media screen and (min-width: 768px) {
-  margin-top: 0px;
+  padding-top: 15px;
   margin-bottom: 30px;
   font-size: 30px;
 }
  }
+ .team__title:after {
+  content: "";
+  display: block;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  margin: auto;
+  border-bottom: 3px solid black;
+  bottom: .15em;
+  transition: all 1s;
+  }
+  H1:hover:after {
+    width: 0%;
+    border-bottom-width: 1px;
+    }
 
 .team__box {
   //width: calc((100% - 60px) / 3);
@@ -191,9 +211,12 @@
   font-size: 18px;
   font-weight: 600;
    color: black;
+   transition-duration: .5s;
+  
    &:hover,
    &:focus {
     color: #ff6b08;
+    
    }
   // color: var(--primaryTextDark);
 
@@ -235,4 +258,10 @@
     height: 100%;
     }
   }
-
+  .team__github {
+    &:hover,
+    &:focus {
+     fill: #ff6b08;
+     transition-duration: .5s;
+  }
+}
