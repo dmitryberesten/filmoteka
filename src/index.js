@@ -15,6 +15,7 @@ import { refs } from './js/refs';
 import { onBtnPageClick } from './js/pagination';
 import { onLinkPlayClick, onLoadMarkup, swiper } from './js/slider';
 import { onBtnAddToLibrary } from './js/add-to-watched&queue';
+
 window.addEventListener('load', onLoadMarkup);
 refs.pagination.addEventListener('click', onBtnPageClick);
 refs.slider.addEventListener('click', onLinkPlayClick);

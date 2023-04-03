@@ -2,7 +2,7 @@ import Swiper, { Navigation, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
 import { refs } from './refs';
 import { fetchTodayPopularMovies, fetchTrailerById } from './api';
-import { state } from './pagination';
+import { state } from './state';
 import * as basicLightbox from 'basiclightbox';
 
 export const swiper = new Swiper('.swiper', {
@@ -22,12 +22,10 @@ export const swiper = new Swiper('.swiper', {
       slidesPerView: 3,
       spaceBetween: 2,
     },
-    // when window width is >= 480px
     768: {
       slidesPerView: 6,
       spaceBetween: 4,
     },
-    // when window width is >= 640px
     1278: {
       slidesPerView: 8,
       spaceBetween: 8,

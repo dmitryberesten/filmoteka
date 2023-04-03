@@ -5,6 +5,13 @@ import {
 } from './local-storage';
 import { refs } from './refs';
 import { renderMoviesList } from './render-from-storage';
+import {
+  clearLibraryMarkup,
+  loadFromStorageWatched,
+  onClickWatched,
+  renderMoviesList,
+} from './render-from-storage';
+import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
 
 export const updateButton = (button, action, btnText) => {

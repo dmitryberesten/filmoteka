@@ -1,21 +1,23 @@
 import { fetchPopularMovies } from './api';
 import { renderGallery } from './create-gallery-markup';
-import { renderPaginationMarkup, state } from './pagination';
+import { renderPaginationMarkup, resetCurrentPage } from './pagination';
+import { state } from './state';
 import { showHideLoader } from './loader';
 import refs from './refs';
 export const moviesEl = document.querySelector('.movies');
-state.currentPage = 1;
 
-fetchPopularMovies(state.currentPage)
-  .then(res => {
-    const { results, total_pages } = res;
-    state.totalPages = total_pages;
-    if (state.totalPages > 1) {
+window.addEventListener('load', () => {
+  resetCurrentPage();
+  fetchPopularMovies(state.currentPage)
+    .then(res => {
+      if (state.whatPaginated === 'local') return;
+      state.whatPaginated = 'main';
+      const { results, total_pages } = res;
+      state.totalPages = total_pages;
       renderPaginationMarkup();
-    }
-
-    return renderGallery(results);
-  })
-  .then(res => {
-    moviesEl.insertAdjacentHTML('beforeend', res);
-  });
+      return renderGallery(results);
+    })
+    .then(res => {
+      moviesEl?.insertAdjacentHTML('beforeend', res);
+    });
+});

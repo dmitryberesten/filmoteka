@@ -32,6 +32,7 @@
 <a align="center" href="https://github.com/YanaKholod">![GitHub](https://img.shields.io/badge/-Yana-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/MisterF1x">![GitHub](https://img.shields.io/badge/-Oleksandr-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/MihailLeontev">![GitHub](https://img.shields.io/badge/-Mihail-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Sheluvboog">![GitHub](https://img.shields.io/badge/-Bohdan-05122A?style=flat&logo=github)</a>
 
 </span>
 
