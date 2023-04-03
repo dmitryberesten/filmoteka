@@ -49,10 +49,12 @@
 
 .movie-title {
   color: black;
+  font-weight: 500;
 }
 
 .movie-date {
   color: #ff6b08;
+  font-weight: 500;
 }
 
 .movie__average {
@@ -87,7 +89,7 @@
 }
 
 .movie__cover--darkened {
-  background-color: #000000;
+  // background-color: #000000;
   opacity: 0.1;
   position: absolute;
   top: 0;
@@ -96,6 +98,7 @@
   max-width: 100%;
   height: 100%;
   z-index: 1;
+  border-radius: 5px;
 }
 
 .movie__cover--darkened:hover {
@@ -107,4 +110,8 @@
   color: #666;
   font-size: 23px;
   margin: 0 auto;
+}
+
+.movie_list_image {
+  border-radius: 5px;
 }
