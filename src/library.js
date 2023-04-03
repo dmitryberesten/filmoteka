@@ -10,9 +10,11 @@ import './js/team-load-to-modal';
 import './js/open-and-close-modal';
 import { refs } from './js/refs';
 import { onBtnAddToLibrary } from './js/add-to-watched&queue';
+import { onBtnPageClick } from './js/pagination';
 window.addEventListener('load', renderingFromStorage.loadFromStorageWatched);
 refs.watchedQueueBtnBlock.addEventListener(
   'click',
   renderingFromStorage.onClickWatched
 );
 refs.btnWrapper.addEventListener('click', onBtnAddToLibrary);
+refs.pagination.addEventListener('click', onBtnPageClick);
