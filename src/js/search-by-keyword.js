@@ -1,6 +1,7 @@
 import { fetchMoviesByQuery, BASE_URL, API_KEY, query } from './api';
 import { renderGallery } from './create-gallery-markup';
 import { moviesEl } from './rendering-movie-cards';
+import Notiflix from 'notiflix';
 import { renderPaginationMarkup, state } from './pagination';
 import { refs } from './refs';
 
@@ -13,7 +14,9 @@ state.currentPage = 1;
 searchFormEl.addEventListener('submit', e => {
   e.preventDefault();
   if (!inputEl.value.trim()) {
-    return;
+    return Notiflix.Notify.failure(
+      'Please enter a search query for the movie'
+    );
   }
 
   moviesEl.innerHTML = '';
@@ -32,4 +35,11 @@ searchFormEl.addEventListener('submit', e => {
     .then(res => {
       moviesEl.insertAdjacentHTML('beforeend', res);
     });
+
+  if (inputEl !== '') {
+    return Notiflix.Notify.success(
+      'Hooray! We found something interesting for you :)'
+    );
+  }
+
 });
