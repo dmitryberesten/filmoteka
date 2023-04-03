@@ -63,7 +63,7 @@ export const onLinkPlayClick = async evt => {
   if (evt.target.nodeName !== 'A') return;
   try {
     const { results } = await fetchTrailerById(evt.target.dataset.id);
-    const { key } = results[results.length];
+    const { key } = results[results.length - 1];
     const closeModal = e => {
       if (e.code === 'Escape') {
         instance.close();
