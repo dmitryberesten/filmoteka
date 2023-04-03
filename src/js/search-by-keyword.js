@@ -26,8 +26,19 @@ searchFormEl.addEventListener('submit', e => {
     .then(res => {
       const { results, total_pages } = res;
       state.totalPages = total_pages;
+
       if (state.totalPages > 1) {
         renderPaginationMarkup();
+        
+        Notiflix.Notify.success(
+          'Hooray! We found something interesting for you :)'
+        );
+        inputEl.value = '';
+      } else {
+        Notiflix.Notify.failure(
+          'Nothing found, sorry :('
+        );
+        inputEl.value = '';
       }
 
       return renderGallery(results);
@@ -35,11 +46,5 @@ searchFormEl.addEventListener('submit', e => {
     .then(res => {
       moviesEl.insertAdjacentHTML('beforeend', res);
     });
-
-  if (inputEl !== '') {
-    return Notiflix.Notify.success(
-      'Hooray! We found something interesting for you :)'
-    );
-  }
 
 });
