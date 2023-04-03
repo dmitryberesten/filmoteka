@@ -4,14 +4,17 @@ import {
   setToLocalStorage,
 } from './local-storage';
 import { refs } from './refs';
+import {
+  clearLibraryMarkup,
+  loadFromStorageWatched,
+  onClickWatched,
+  renderMoviesList,
+} from './render-from-storage';
 import { state } from './state';
-
-// export let activeFilm;
 
 export const onBtnAddToLibrary = evt => {
   const watchedFilmsArray = getFromStorage(localStorageKeys.WATCHED) || [];
   const queueFilmsUsersArray = getFromStorage(localStorageKeys.QUEUE) || [];
-  console.log(evt.target.innerText);
 
   if (evt.target.innerText === 'ADD TO WATCHED') {
     saveToStorageFilm(
@@ -27,6 +30,16 @@ export const onBtnAddToLibrary = evt => {
       'WATCHED',
       evt
     );
+
+    ////chang markup after remove from watched fims
+    refs.moviesLib.innerHTML = '';
+    const watchedFilmsinLocalStorage =
+      getFromStorage(localStorageKeys.WATCHED) || [];
+
+    refs.moviesLib.insertAdjacentHTML(
+      'beforeend',
+      renderMoviesList(watchedFilmsinLocalStorage)
+    );
   } else if (evt.target.innerText === 'ADD TO QUEUE') {
     saveToStorageFilm(
       queueFilmsUsersArray,
@@ -40,6 +53,16 @@ export const onBtnAddToLibrary = evt => {
       localStorageKeys.QUEUE,
       'QUEUE',
       evt
+    );
+
+    ////chang markup after remove from queue fims
+    refs.moviesLib.innerHTML = '';
+    const queueFilmsinLocalStorage =
+      getFromStorage(localStorageKeys.QUEUE) || [];
+
+    refs.moviesLib.insertAdjacentHTML(
+      'beforeend',
+      renderMoviesList(queueFilmsinLocalStorage)
     );
   }
 };

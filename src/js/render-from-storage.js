@@ -38,7 +38,7 @@ export const onClickWatched = evt => {
   evt.target.classList.add('active');
 };
 
-function renderMoviesList(movies) {
+export function renderMoviesList(movies) {
   return movies
     .map(
       ({
