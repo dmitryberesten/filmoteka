@@ -46,6 +46,13 @@
   padding-bottom: 54px;
 }
 
+.logo-film > svg,
+.logo-film > svg,
+.logo-film > span,
+.logo-film > span {
+  transition: all 0.3s ease-in-out;
+}
+
 .logo-film:hover > svg,
 .logo-film:focus > svg,
 .logo-film:hover > span,
@@ -54,7 +61,6 @@
   stroke: #ff001b;
 
   text-shadow: 0 0 15px #ff001b;
-  transition: all 0.3s ease-in-out;
 }
 
 .logo {
