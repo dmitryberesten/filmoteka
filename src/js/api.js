@@ -23,7 +23,6 @@ async function fetchTodayPopularMovies() {
   const data = await response.json();
   return data;
 }
-console.log(fetchPopularMovies(3));
 
 async function fetchMoviesByQuery(query, page) {
   const url = new URL(`${BASE_URL}/search/movie`);

@@ -1,3 +1,5 @@
+export let filmId;
+
 const averageElement = document.createElement('span');
 const countElement = document.createElement('span');
 export const getInitialModalData = () => {
@@ -9,6 +11,11 @@ export const getInitialModalData = () => {
   const popul = document.getElementById('popul');
   const origTitle = document.getElementById('origTitle');
   const genre = document.getElementById('genre');
+  const trailerBtn = document.querySelector('.trailer-btn');
+
+
+  trailerBtn.dataset.filmId = cardData.id;
+  filmId = cardData.id;
 
   filmImg.src = cardData.poster_path ? `${cardData.poster_path}` : 'N/A';
   filmTitle.innerText = cardData.title ? `${cardData.title}` : 'N/A';
