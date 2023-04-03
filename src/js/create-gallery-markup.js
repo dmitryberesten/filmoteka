@@ -1,5 +1,4 @@
 import { fetchGenres } from './api';
-import { fetchPopularMovies } from './api';
 
 const NO_POSTER = `https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png`;
 

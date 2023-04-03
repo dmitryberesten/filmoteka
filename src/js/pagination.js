@@ -1,8 +1,8 @@
-import { fetchPopularMovies, fetchMoviesByQuery, query } from './api';
+import { fetchPopularMovies, fetchMoviesByQuery } from './api';
 import { renderGallery } from './create-gallery-markup';
 import { getFromStorage, localStorageKeys } from './local-storage';
 import { refs } from './refs';
-import { localPaginate, renderMoviesList } from './render-from-storage';
+import { localPaginate } from './render-from-storage';
 import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
 

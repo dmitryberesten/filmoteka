@@ -2,8 +2,6 @@ import { fetchPopularMovies } from './api';
 import { renderGallery } from './create-gallery-markup';
 import { renderPaginationMarkup, resetCurrentPage } from './pagination';
 import { state } from './state';
-import { showHideLoader } from './loader';
-import refs from './refs';
 export const moviesEl = document.querySelector('.movies');
 
 window.addEventListener('load', () => {
