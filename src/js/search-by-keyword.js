@@ -11,6 +11,8 @@ import { state } from './state';
 const searchFormEl = document.querySelector('.header-search-form');
 const inputEl = document.querySelector('.form-input');
 
+
+
 resetCurrentPage();
 
 searchFormEl.addEventListener('submit', e => {
@@ -38,6 +40,7 @@ searchFormEl.addEventListener('submit', e => {
       } else {
         Notiflix.Notify.failure('Nothing found, sorry :(');
         inputEl.value = '';
+        addNotifMeme()
       }
 
       return renderGallery(results);
@@ -46,3 +49,15 @@ searchFormEl.addEventListener('submit', e => {
       moviesEl.insertAdjacentHTML('beforeend', res);
     });
 });
+
+function addNotifMeme() {
+  const memeNothing = document.querySelector('.meme-notif-nothing');
+
+  memeNothing.classList.remove('animate__flipOutX');
+  memeNothing.style.display = 'block';
+  
+  setTimeout(function () {
+    memeNothing.classList.add('animate__flipOutX');
+    memeNothing.style.display = "none";
+  }, 3000);
+}
