@@ -4,76 +4,111 @@ import {
   setToLocalStorage,
 } from './local-storage';
 import { refs } from './refs';
-import {
-  clearLibraryMarkup,
-  loadFromStorageWatched,
-  onClickWatched,
-  renderMoviesList,
-} from './render-from-storage';
+import { renderMoviesList } from './render-from-storage';
 import { state } from './state';
 
-export const onBtnAddToLibrary = evt => {
-  const watchedFilmsArray = getFromStorage(localStorageKeys.WATCHED) || [];
-  const queueFilmsUsersArray = getFromStorage(localStorageKeys.QUEUE) || [];
-
-  if (evt.target.innerText === 'ADD TO WATCHED') {
-    saveToStorageFilm(
-      watchedFilmsArray,
-      localStorageKeys.WATCHED,
-      'WATCHED',
-      evt
-    );
-  } else if (evt.target.innerText === 'REMOVE FROM WATCHED') {
-    deleteFromStorageFilm(
-      watchedFilmsArray,
-      localStorageKeys.WATCHED,
-      'WATCHED',
-      evt
-    );
-
-    ////chang markup after remove from watched fims
-    refs.moviesLib.innerHTML = '';
-    const watchedFilmsinLocalStorage =
-      getFromStorage(localStorageKeys.WATCHED) || [];
-
-    refs.moviesLib.insertAdjacentHTML(
-      'beforeend',
-      renderMoviesList(watchedFilmsinLocalStorage)
-    );
-  } else if (evt.target.innerText === 'ADD TO QUEUE') {
-    saveToStorageFilm(
-      queueFilmsUsersArray,
-      localStorageKeys.QUEUE,
-      'QUEUE',
-      evt
-    );
-  } else if (evt.target.innerText === 'REMOVE FROM QUEUE') {
-    deleteFromStorageFilm(
-      queueFilmsUsersArray,
-      localStorageKeys.QUEUE,
-      'QUEUE',
-      evt
-    );
-
-    ////chang markup after remove from queue fims
-    refs.moviesLib.innerHTML = '';
-    const queueFilmsinLocalStorage =
-      getFromStorage(localStorageKeys.QUEUE) || [];
-
-    refs.moviesLib.insertAdjacentHTML(
-      'beforeend',
-      renderMoviesList(queueFilmsinLocalStorage)
-    );
+export const updateButton = (button, action, btnText) => {
+  if (action === 'add') {
+    button.dataset.value = 'remove';
+    button.innerText = `REMOVE FROM ${btnText}`;
+  } else {
+    button.dataset.value = 'add';
+    button.innerText = `ADD TO ${btnText}`;
   }
 };
 
-function saveToStorageFilm(array, key, keyValue, evt) {
+export const onBtnAddToLibrary = evt => {
+  if (evt.target.nodeName !== 'BUTTON') return;
+
+  const btnText = evt.target.classList.contains('add-to-queue-btn')
+    ? 'QUEUE'
+    : 'WATCHED';
+
+  const array = getFromStorage(localStorageKeys[btnText]) || [];
+  const watchedFilms = getFromStorage(localStorageKeys.WATCHED) || [];
+  const queueFilms = getFromStorage(localStorageKeys.QUEUE) || [];
+  if (evt.target.dataset.value === 'add') {
+    if (
+      btnText === 'QUEUE' &&
+      watchedFilms.find(film => film.id === state.activeFilm.id)
+    ) {
+      deleteFromStorageFilm(watchedFilms, 'watched');
+
+      saveToStorageFilm(queueFilms, 'queue');
+      updateButton(refs.addToQueueBtn, 'add', 'QUEUE');
+      updateButton(refs.addToWatchedBtn, 'remove', 'WATCHED');
+
+      return;
+    } else if (
+      btnText === 'WATCHED' &&
+      queueFilms.find(film => film.id === state.activeFilm.id)
+    ) {
+      deleteFromStorageFilm(queueFilms, 'queue');
+      saveToStorageFilm(watchedFilms, 'watched');
+      updateButton(refs.addToWatchedBtn, 'add', 'WATCHED');
+      updateButton(refs.addToQueueBtn, 'remove', 'QUEUE');
+
+      return;
+    }
+
+    saveToStorageFilm(array, btnText.toLowerCase());
+    updateButton(evt.target, 'add', btnText);
+  } else {
+    deleteFromStorageFilm(array, btnText.toLowerCase());
+    updateButton(evt.target, 'remove', btnText);
+  }
+};
+
+function saveToStorageFilm(array, key) {
   array.push(state.activeFilm);
   setToLocalStorage(key, array);
-  evt.target.innerText = `REMOVE FROM ${keyValue}`;
 }
-function deleteFromStorageFilm(array, key, keyValue, evt) {
+function deleteFromStorageFilm(array, key) {
   const filteredFilms = array.filter(film => film.id !== state.activeFilm.id);
   setToLocalStorage(key, filteredFilms);
-  evt.target.innerText = `ADD TO ${keyValue}`;
+}
+export function updateModalbuttons() {
+  const watchedFilms = getFromStorage(localStorageKeys.WATCHED) || [];
+  const queueFilms = getFromStorage(localStorageKeys.QUEUE) || [];
+
+  if (watchedFilms.find(film => film.id === state.activeFilm.id)) {
+    updateButton(refs.addToWatchedBtn, 'add', 'WATCHED');
+    updateButton(refs.addToQueueBtn, 'remove', 'QUEUE');
+  } else if (queueFilms.find(film => film.id === state.activeFilm.id)) {
+    updateButton(refs.addToQueueBtn, 'add', 'QUEUE');
+    updateButton(refs.addToWatchedBtn, 'remove', 'WATCHED');
+  } else {
+    updateButton(refs.addToWatchedBtn, 'remove', 'WATCHED');
+    updateButton(refs.addToQueueBtn, 'remove', 'QUEUE');
+  }
+}
+
+export function updateMarkupLibrary(evt) {
+  if (evt.target.innerText === 'ADD TO WATCHED') {
+    deleteFromWatchedMarkup();
+  } else if (evt.target.innerText === 'REMOVE FROM WATCHED') {
+    deleteFromWatchedMarkup();
+  } else if (evt.target.innerText === 'ADD TO QUEUE') {
+    deleteFromQueueMarkup();
+  } else if (evt.target.innerText === 'REMOVE FROM QUEUE') {
+    deleteFromQueueMarkup();
+  }
+}
+function deleteFromWatchedMarkup() {
+  refs.moviesLib.innerHTML = '';
+  const watchedFilmsinLocalStorage =
+    getFromStorage(localStorageKeys.WATCHED) || [];
+  refs.moviesLib.insertAdjacentHTML(
+    'beforeend',
+    renderMoviesList(watchedFilmsinLocalStorage)
+  );
+}
+
+function deleteFromQueueMarkup() {
+  refs.moviesLib.innerHTML = '';
+  const queueFilmsinLocalStorage = getFromStorage(localStorageKeys.QUEUE) || [];
+  refs.moviesLib.insertAdjacentHTML(
+    'beforeend',
+    renderMoviesList(queueFilmsinLocalStorage)
+  );
 }

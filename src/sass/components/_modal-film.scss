@@ -77,8 +77,7 @@
   margin-bottom: 8px;
 }
 .left-descr-content:last-child {
-  margin-bottom:0;
-
+  margin-bottom: 0;
 }
 
 .average {
@@ -141,7 +140,6 @@
 
 #description {
   margin-bottom: 20px;
-
 }
 
 #votes,
@@ -189,10 +187,6 @@
     color: $primary-text-color;
     border-color: transparent;
   }
-  @media screen and (min-width: $mobile) {
-    min-width: 110px;
-    padding: 6px 13px;
-  }
 
   @media screen and (min-width: $tablet) {
     min-width: 125px;
@@ -203,6 +197,20 @@
     min-width: 136px;
   }
 }
+.add-to-watched-btn {
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    padding: 6px 13px;
+    max-width: 110px;
+  }
+}
+.add-to-queue-btn {
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    padding: 13px 13px;
+    max-width: 110px;
+  }
+}
+//BUTTONS
+
 @media screen and (max-width: 992px) {
   #modal {
     width: 704px;
@@ -211,14 +219,14 @@
   #left-content img {
     width: 264px;
     height: 373.55px;
-   }
-   #right-content {
+  }
+  #right-content {
     margin-left: 66px;
-}
-#film-title {
-  font-size: 20px;
-  line-height: 23.44px;
-}
+  }
+  #film-title {
+    font-size: 20px;
+    line-height: 23.44px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -231,7 +239,7 @@
     max-height: 460px;
     overflow-y: scroll;
   }
-  #film-title{
+  #film-title {
     font-size: 20px;
     line-height: 23.44px;
   }
@@ -240,26 +248,22 @@
     width: 100%;
     max-width: 100%;
     margin: 0;
-
   }
-  #right-content{
-    padding:0;
+  #right-content {
+    padding: 0;
     margin-top: 20px;
-
   }
   #left-content img {
     width: 240px;
     height: 357px;
-    }
+  }
   #film-img {
     margin: 0 auto;
   }
   #modal {
     max-width: 320px;
     padding: 48px 20px;
-}
-
-
+  }
 }
 
 // Трейлер
