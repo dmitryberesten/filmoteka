@@ -107,6 +107,7 @@ async function deleteFromWatchedMarkup() {
     getFromStorage(localStorageKeys.WATCHED) || [];
   const films = localPaginate(watchedFilmsinLocalStorage, state.currentPage);
   updateLibRender(films);
+  chahgeBtnActiveStatus(refs.buttonWatched, refs.buttonQueue);
 }
 
 async function deleteFromQueueMarkup() {
@@ -114,4 +115,10 @@ async function deleteFromQueueMarkup() {
   const queueFilmsinLocalStorage = getFromStorage(localStorageKeys.QUEUE) || [];
   const films = localPaginate(queueFilmsinLocalStorage, state.currentPage);
   updateLibRender(films);
+  chahgeBtnActiveStatus(refs.buttonQueue, refs.buttonWatched);
+}
+
+function chahgeBtnActiveStatus(elFirst, elSecond) {
+  elFirst.classList.add('active');
+  elSecond.classList.remove('active');
 }
