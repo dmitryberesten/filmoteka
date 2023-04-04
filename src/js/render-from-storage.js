@@ -11,7 +11,7 @@ import { state } from './state';
 export const updateLibRender = async data => {
   try {
     let markup = '';
-    const warning = `<li class="watched-warning">No movies have been added yet. Let's go pick something to your liking</li>`;
+    const warning = `<li class="watched-img"><p class="watched-warning">No movies have been added yet. Let's go pick something to your liking</p></li>`;
     resetCurrentPage();
     const films = localPaginate(data, state.currentPage);
     if (data === undefined || data.length === 0) {

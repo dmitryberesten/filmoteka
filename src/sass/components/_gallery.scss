@@ -111,10 +111,55 @@
   cursor: pointer;
 }
 
-.watched-warning {
-  color: #666;
-  font-size: 23px;
+.watched-img {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.04),
+      rgba(0, 0, 0, 0.04)
+    ),
+    url(../images/notification-meme/no-signal.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  width: 320px;
   margin: 0 auto;
+  text-align: center;
+  padding-top: 75px;
+
+  @media screen and (min-width: $tablet) {
+    height: 380px;
+    width: 650px;
+    padding-top: 100px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 425px;
+    width: 800px;
+    padding-top: 115px;
+  }
+}
+
+.watched-warning {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.2;
+  max-width: 250px;
+  margin: 0 auto;
+  background-color: black;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 450px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 25px;
+    line-height: 1.6;
+    max-width: 550px;
+  }
 }
 
 .movie_list_image {
