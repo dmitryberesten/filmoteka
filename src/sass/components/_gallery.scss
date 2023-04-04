@@ -119,6 +119,10 @@
 
 .movie_list_image {
   border-radius: 5px;
+
+  @media screen and (min-width: $desktop) {
+    height: 592.5px;
+  }
 }
 
 .meme-notif-nothing {
