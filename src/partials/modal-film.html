@@ -4,15 +4,13 @@
     <div id="movie-card">
       <div id="content">
         <div id="left-content" class="img-posters">
-          <img id="film-img" alt="Film Image" />
-          <button class="trailer-btn" id="film-id" type="button">
-            <svg class="trailer-icon">
-              <use
-                class="trailer-icon"
-                href="./images/icons.svg#trailer-btn"
-              ></use>
-            </svg>
-          </button>
+          <div id="film-img" alt="Film Image">
+            <button class="trailer-btn" id="film-id" type="button">
+              <svg class="trailer-icon">
+                <use class="trailer-icon" href="./images/icons.svg#trailer-btn"></use>
+              </svg>
+            </button>
+          </div>
         </div>
         <div id="right-content">
           <h2 id="film-title"></h2>
@@ -40,22 +38,12 @@
           </div>
 
           <div id="buttonWrapper">
-            <button
-              type="button"
-              class="add-to-watched-btn music__btn"
-              id="btn"
-              data-value="add"
-            >
+            <button type="button" class="add-to-watched-btn music__btn" id="btn" data-value="add">
               <audio id="1" src="./sound/b.mp3"></audio>
               ADD TO WATCHED
             </button>
 
-            <button
-              type="button"
-              class="add-to-queue-btn music__btn"
-              id="btn"
-              data-value="add"
-            >
+            <button type="button" class="add-to-queue-btn music__btn" id="btn" data-value="add">
               <audio id="1" src="./sound/b.mp3">ADD TO QUEUE</audio>
 
               ADD TO QUEUE

@@ -1,5 +1,7 @@
 export let filmId;
 
+NO_POSTER = 'https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png';
+
 const averageElement = document.createElement('span');
 const countElement = document.createElement('span');
 export const getInitialModalData = () => {
@@ -13,13 +15,12 @@ export const getInitialModalData = () => {
   const genre = document.getElementById('genre');
   const trailerBtn = document.querySelector('.trailer-btn');
 
-
   trailerBtn.dataset.filmId = cardData.id;
   filmId = cardData.id;
 
   filmImg.src = cardData.poster_path
-    ? `https://image.tmdb.org/t/p/w500${cardData.poster_path}`
-    : 'N/A';
+    ? (filmImg.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500${cardData.poster_path}')`)
+    : NO_POSTER;
   filmTitle.innerText = cardData.title ? `${cardData.title}` : 'N/A';
   about.innerText = cardData.overview ? `${cardData.overview}` : 'N/A';
   averageElement.className = 'average';
