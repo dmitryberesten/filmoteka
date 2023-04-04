@@ -165,11 +165,9 @@
   line-height: 20px;
 }
 
-.buttonWrapper {
+.btn_wrapper {
   //FOR BUTTONS
   display: flex;
-  display: -webkit-box;
-  display: -ms-flexbox;
 
   @media screen and (min-width: $mobile) {
     gap: 20px;
