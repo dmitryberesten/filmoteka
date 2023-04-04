@@ -56,7 +56,19 @@ window.onload = () => {
     openModal();
 
     //buttons
-    updateModalbuttons();
+    const watchedFilms = getFromStorage(localStorageKeys.WATCHED) || [];
+    const queueFilms = getFromStorage(localStorageKeys.QUEUE) || [];
+
+    if (watchedFilms.find(film => film.id === state.activeFilm.id)) {
+      refs.addToWatchedBtn.innerText = 'REMOVE FROM WATCHED';
+    } else {
+      refs.addToWatchedBtn.innerText = 'ADD TO WATCHED';
+    }
+    if (queueFilms.find(film => film.id === state.activeFilm.id)) {
+      refs.addToQueueBtn.innerText = 'REMOVE FROM QUEUE';
+    } else {
+      refs.addToQueueBtn.innerText = 'ADD TO QUEUE';
+    }
     //buttons
   };
 };
