@@ -20,7 +20,7 @@ export const getInitialModalData = () => {
 
   filmImg.src = cardData.poster_path
     ? (filmImg.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500${cardData.poster_path}')`)
-    : NO_POSTER;
+    : (filmImg.style.backgroundImage = NO_POSTER);
   filmTitle.innerText = cardData.title ? `${cardData.title}` : 'N/A';
   about.innerText = cardData.overview ? `${cardData.overview}` : 'N/A';
   averageElement.className = 'average';
