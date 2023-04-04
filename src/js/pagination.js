@@ -1,5 +1,6 @@
 import { fetchPopularMovies, fetchMoviesByQuery } from './api';
 import { renderGallery } from './create-gallery-markup';
+import { setScrollToUp } from './custom-components';
 import { getFromStorage, localStorageKeys } from './local-storage';
 import { refs } from './refs';
 import { localPaginate } from './render-from-storage';
@@ -10,6 +11,7 @@ const { pagination } = refs;
 export const resetCurrentPage = () => {
   state.currentPage = 1;
 };
+
 export const clearPagination = () => {
   pagination.innerHTML = '';
 };
@@ -153,6 +155,9 @@ export const onBtnPageClick = async evt => {
   if (evt.target.classList.contains('next-dots')) goToNextGroupBtn();
   if (evt.target.classList.contains('prev-dots')) goToPrevGroupBtn();
   changePageByClick(evt);
+  window.scrollTo({
+    top: 0,
+  });
   moviesEl.innerHTML = '';
   whatPaginated(state.whatPaginated);
 };
