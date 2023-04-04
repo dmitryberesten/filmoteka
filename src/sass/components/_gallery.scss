@@ -6,7 +6,8 @@
 .movies-lib {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 25px;
+  justify-content: center;
 
   @media screen and (min-width: $tablet) {
     justify-content: center;
