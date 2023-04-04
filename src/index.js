@@ -10,6 +10,7 @@ import * as galleryMarkup from './js/create-gallery-markup';
 import * as modalFilm from './js/loading-into-modal';
 import * as openAndCloseModal from './js/open-and-close-modal';
 import './js/sound';
+import './js/loader';
 
 import { refs } from './js/refs';
 import { onBtnPageClick } from './js/pagination';
