@@ -5,7 +5,6 @@ import {
   renderPaginationMarkup,
   resetCurrentPage,
 } from './pagination';
-import { refs } from './refs';
 import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
 
