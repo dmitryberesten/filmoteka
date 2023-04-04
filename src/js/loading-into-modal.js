@@ -1,6 +1,6 @@
 export let filmId;
 
-NO_POSTER = 'https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png';
+const NO_POSTER = 'https://i.ibb.co/r76r6Vt/oie-30214851-Ms-Wl-PTS0.png';
 
 const averageElement = document.createElement('span');
 const countElement = document.createElement('span');
