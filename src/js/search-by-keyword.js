@@ -55,9 +55,9 @@ function addNotifMeme() {
 
   memeNothing.classList.remove('animate__flipOutX');
   memeNothing.style.display = 'block';
-  
+
   setTimeout(function () {
     memeNothing.classList.add('animate__flipOutX');
     memeNothing.style.display = "none";
-  }, 3000);
+  }, 5000);
 }
