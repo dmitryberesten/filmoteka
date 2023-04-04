@@ -318,3 +318,21 @@
   width: 100px;
   height: 100px;
 }
+.iframe-container {
+  width: 320px;
+  height: 240px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+    width: 720px;
+    height: 405px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 848px;
+    height: 477px;
+  }
+}
