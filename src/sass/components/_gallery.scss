@@ -6,7 +6,7 @@
 .movies-lib {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 16px;
   justify-content: center;
 
   @media screen and (min-width: $tablet) {
@@ -22,7 +22,7 @@
   position: relative;
   width: 280px;
   font-size: 12px;
-  transition: scale 0.1s;
+  transition: scale 250ms;
 
   @media screen and (min-width: $tablet) {
     width: 336px;
@@ -30,7 +30,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    width: 395px;
+    flex-basis: calc((100% - 32px) / 3);
     font-size: 20px;
   }
 }
