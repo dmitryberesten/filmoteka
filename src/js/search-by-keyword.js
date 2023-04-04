@@ -37,6 +37,7 @@ searchFormEl.addEventListener('submit', e => {
           'Hooray! We found something interesting for you :)'
         );
         inputEl.value = '';
+        removeNotifMeme();
       } else {
         Notiflix.Notify.failure('Nothing found, sorry :(');
         inputEl.value = '';
@@ -52,12 +53,10 @@ searchFormEl.addEventListener('submit', e => {
 
 function addNotifMeme() {
   const memeNothing = document.querySelector('.meme-notif-nothing');
-
-  memeNothing.classList.remove('animate__flipOutX');
   memeNothing.style.display = 'block';
+}
 
-  setTimeout(function () {
-    memeNothing.classList.add('animate__flipOutX');
-    memeNothing.style.display = "none";
-  }, 5000);
+function removeNotifMeme() {
+  const memeNothing = document.querySelector('.meme-notif-nothing');
+  memeNothing.style.display = 'none';
 }
