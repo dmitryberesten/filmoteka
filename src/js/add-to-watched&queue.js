@@ -8,7 +8,6 @@ import {
   clearLibraryMarkup,
   loadFromStorageWatched,
   onClickWatched,
-  renderMoviesList,
 } from './render-from-storage';
 import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
