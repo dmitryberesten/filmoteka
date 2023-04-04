@@ -1,5 +1,3 @@
-
-
 .modal-wrapper {
   display: none;
   justify-content: center;
@@ -12,7 +10,7 @@
   z-index: 999;
   overflow: hidden;
   background-color: #00000079;
-  }
+}
 .backdrop {
   width: 14px;
   height: 14px;
@@ -167,9 +165,11 @@
   line-height: 20px;
 }
 
-#buttonWrapper {
+.buttonWrapper {
   //FOR BUTTONS
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
 
   @media screen and (min-width: $mobile) {
     gap: 20px;
@@ -189,7 +189,7 @@
   font-size: 12px;
   line-height: 1.3;
   text-align: center;
-
+  color: $secondary-text-color;
   border: 1px solid $secondary-text-color;
   background-color: transparent;
 
@@ -239,8 +239,7 @@
   #film-img {
     width: 240px;
     height: 357px;
- }
-
+  }
 }
 
 @media screen and (max-width: 767px) {
