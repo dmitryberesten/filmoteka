@@ -14,6 +14,7 @@ import {
   onBtnAddToLibrary,
   updateMarkupLibrary,
 } from './js/add-to-watched&queue';
+import { onBtnPageClick } from './js/pagination';
 
 window.addEventListener('load', renderingFromStorage.loadFromStorageWatched);
 refs.watchedQueueBtnBlock.addEventListener(
@@ -23,4 +24,3 @@ refs.watchedQueueBtnBlock.addEventListener(
 refs.btnWrapper.addEventListener('click', onBtnAddToLibrary);
 refs.btnWrapper.addEventListener('click', updateMarkupLibrary);
 refs.pagination.addEventListener('click', onBtnPageClick);
-

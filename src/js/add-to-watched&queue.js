@@ -1,16 +1,16 @@
+import { renderGallery } from './create-gallery-markup';
 import {
   getFromStorage,
   localStorageKeys,
   setToLocalStorage,
 } from './local-storage';
-import { refs } from './refs';
-import { renderMoviesList } from './render-from-storage';
 import {
-  clearLibraryMarkup,
-  loadFromStorageWatched,
-  onClickWatched,
-  renderMoviesList,
-} from './render-from-storage';
+  clearPagination,
+  renderPaginationMarkup,
+  resetCurrentPage,
+} from './pagination';
+import { refs } from './refs';
+import { localPaginate } from './render-from-storage';
 import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
 
@@ -101,21 +101,25 @@ export function updateMarkupLibrary(evt) {
     deleteFromQueueMarkup();
   }
 }
-function deleteFromWatchedMarkup() {
-  refs.moviesLib.innerHTML = '';
+async function deleteFromWatchedMarkup() {
+  clearPagination();
+  resetCurrentPage();
   const watchedFilmsinLocalStorage =
     getFromStorage(localStorageKeys.WATCHED) || [];
-  refs.moviesLib.insertAdjacentHTML(
-    'beforeend',
-    renderMoviesList(watchedFilmsinLocalStorage)
-  );
+  const films = localPaginate(watchedFilmsinLocalStorage, state.currentPage);
+  const markup = await renderGallery(films);
+  moviesEl.innerHTML = '';
+  moviesEl.insertAdjacentHTML('beforeend', markup);
+  renderPaginationMarkup();
 }
 
-function deleteFromQueueMarkup() {
-  refs.moviesLib.innerHTML = '';
+async function deleteFromQueueMarkup() {
+  clearPagination();
+  resetCurrentPage();
   const queueFilmsinLocalStorage = getFromStorage(localStorageKeys.QUEUE) || [];
-  refs.moviesLib.insertAdjacentHTML(
-    'beforeend',
-    renderMoviesList(queueFilmsinLocalStorage)
-  );
+  const films = localPaginate(queueFilmsinLocalStorage, state.currentPage);
+  const markup = await renderGallery(films);
+  moviesEl.innerHTML = '';
+  moviesEl.insertAdjacentHTML('beforeend', markup);
+  renderPaginationMarkup();
 }
