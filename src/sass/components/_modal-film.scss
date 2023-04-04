@@ -1,3 +1,5 @@
+
+
 .modal-wrapper {
   display: none;
   justify-content: center;
@@ -10,7 +12,7 @@
   z-index: 999;
   overflow: hidden;
   background-color: #00000079;
-}
+  }
 .backdrop {
   width: 14px;
   height: 14px;
@@ -54,6 +56,16 @@
   max-height: 558px;
   border-radius: 3px;
   height: max-content;
+  animation: modal 0.4s linear none;
+}
+@keyframes modal {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 #movie-card {
   height: auto;
@@ -123,10 +135,10 @@
 }
 
 #film-img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  object-fit: cover;
+  width: 375px;
+  height: 478px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #film-title {
@@ -216,10 +228,6 @@
     width: 704px;
     padding: 40px 36px;
   }
-  #left-content img {
-    width: 264px;
-    height: 373.55px;
-  }
   #right-content {
     margin-left: 66px;
   }
@@ -227,6 +235,12 @@
     font-size: 20px;
     line-height: 23.44px;
   }
+
+  #film-img {
+    width: 240px;
+    height: 357px;
+ }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -238,7 +252,13 @@
     flex-direction: column;
     max-height: 460px;
     overflow-y: scroll;
+    width: 245px;
+    margin: 0;
   }
+  #content::-webkit-scrollbar {
+    width: 5px;
+  }
+
   #film-title {
     font-size: 20px;
     line-height: 23.44px;
@@ -252,17 +272,16 @@
   #right-content {
     padding: 0;
     margin-top: 20px;
+    width: 240px;
   }
-  #left-content img {
+  #left-content {
     width: 240px;
     height: 357px;
-  }
-  #film-img {
-    margin: 0 auto;
   }
   #modal {
     max-width: 320px;
     padding: 48px 20px;
+    max-width: 280px;
   }
 }
 
