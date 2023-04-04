@@ -8,6 +8,26 @@ import {
 import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
 
+export const updateLibRender = async data => {
+  try {
+    let markup = '';
+    const warning = `<li class="watched-warning">No movies have been added yet. Let's go pick something to your liking</li>`;
+    resetCurrentPage();
+    const films = localPaginate(data, state.currentPage);
+    if (data === undefined || data.length === 0) {
+      clearPagination();
+      markup = warning;
+    } else {
+      markup = await renderGallery(films);
+      clearPagination();
+      renderPaginationMarkup();
+    }
+    moviesEl.innerHTML = '';
+    moviesEl.insertAdjacentHTML('beforeend', markup);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 export const localPaginate = (array, currentPage) => {
   if (!array) return;
   const itemsPerPage = 6;
@@ -16,59 +36,20 @@ export const localPaginate = (array, currentPage) => {
   return array.slice(startIndex, startIndex + itemsPerPage);
 };
 
-export const loadFromStorageWatched = async () => {
-  try {
-    resetCurrentPage();
-    const data = getFromStorage(localStorageKeys.WATCHED);
-    const warning = `<li class="watched-warning">No movies have been added yet. Let's go pick something to your liking</li>`;
-    state.whatPaginated = 'local';
-    state.whatchedOrQueue = 'WATCHED';
-    let markup = '';
-    const films = localPaginate(data, state.currentPage);
-    if (data === undefined || data.length === 0) {
-      clearPagination();
-      markup = warning;
-    } else {
-      markup = await renderGallery(films);
-      clearPagination();
-      renderPaginationMarkup();
-    }
-    moviesEl.innerHTML = '';
-    moviesEl.insertAdjacentHTML('beforeend', markup);
-  } catch (error) {
-    console.error(error.message);
-  }
+export const loadFromStorageWatched = () => {
+  const data = getFromStorage(localStorageKeys.WATCHED);
+  state.whatPaginated = 'local';
+  state.whatchedOrQueue = 'WATCHED';
+  updateLibRender(data);
 };
 export const onClickWatched = async evt => {
-  try {
-    if (evt.target.nodeName !== 'BUTTON') return;
-    if (evt.target.classList.contains('active')) return;
-    resetCurrentPage();
-    const activeBtn = document.querySelector('.active');
-    let key = evt.target.dataset.value.toUpperCase();
-    state.whatchedOrQueue = key;
-    const data = getFromStorage(localStorageKeys[key]);
-    const warning =
-      evt.target.dataset.value.toUpperCase() === 'WATCHED'
-        ? `<li class="watched-warning">No movies have been added yet. Let's go pick something to your liking</li>`
-        : `<li class="watched-warning">Please add your favorite film</li>`;
-
-    let markup;
-    const films = localPaginate(data, state.currentPage);
-    if (data === undefined || data.length === 0) {
-      clearPagination();
-      markup = warning;
-    } else {
-      markup = await renderGallery(films);
-      clearPagination();
-      renderPaginationMarkup();
-    }
-
-    moviesEl.innerHTML = '';
-    moviesEl.insertAdjacentHTML('beforeend', markup);
-    activeBtn.classList.remove('active');
-    evt.target.classList.add('active');
-  } catch (error) {
-    console.error(error.message);
-  }
+  if (evt.target.nodeName !== 'BUTTON') return;
+  if (evt.target.classList.contains('active')) return;
+  const activeBtn = document.querySelector('.active');
+  let key = evt.target.dataset.value.toUpperCase();
+  state.whatchedOrQueue = key;
+  const data = getFromStorage(localStorageKeys[key]);
+  updateLibRender(data);
+  activeBtn.classList.remove('active');
+  evt.target.classList.add('active');
 };

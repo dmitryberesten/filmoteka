@@ -10,7 +10,7 @@ import {
   resetCurrentPage,
 } from './pagination';
 import { refs } from './refs';
-import { localPaginate } from './render-from-storage';
+import { localPaginate, updateLibRender } from './render-from-storage';
 import { moviesEl } from './rendering-movie-cards';
 import { state } from './state';
 
@@ -102,24 +102,16 @@ export function updateMarkupLibrary(evt) {
   }
 }
 async function deleteFromWatchedMarkup() {
-  clearPagination();
   resetCurrentPage();
   const watchedFilmsinLocalStorage =
     getFromStorage(localStorageKeys.WATCHED) || [];
   const films = localPaginate(watchedFilmsinLocalStorage, state.currentPage);
-  const markup = await renderGallery(films);
-  moviesEl.innerHTML = '';
-  moviesEl.insertAdjacentHTML('beforeend', markup);
-  renderPaginationMarkup();
+  updateLibRender(films);
 }
 
 async function deleteFromQueueMarkup() {
-  clearPagination();
   resetCurrentPage();
   const queueFilmsinLocalStorage = getFromStorage(localStorageKeys.QUEUE) || [];
   const films = localPaginate(queueFilmsinLocalStorage, state.currentPage);
-  const markup = await renderGallery(films);
-  moviesEl.innerHTML = '';
-  moviesEl.insertAdjacentHTML('beforeend', markup);
-  renderPaginationMarkup();
+  updateLibRender(films);
 }
