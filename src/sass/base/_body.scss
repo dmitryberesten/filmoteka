@@ -54,20 +54,17 @@ a:not([class]) {
 .container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 32px;
-
-  @media screen and (min-width: $mobile) {
-    width: $mobile;
-  }
+  padding: 0 10px;
+  width: $mobile;
 
   @media screen and (min-width: $tablet) {
     width: 768px;
-    // padding: 0 32px;
+    padding: 0 32px;
   }
 
   @media screen and (min-width: $desktop) {
     width: 1300px;
-    // padding: 0 32px;
+    padding: 0 32px;
   }
 }
 
