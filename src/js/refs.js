@@ -8,4 +8,6 @@ export const refs = {
   addToQueueBtn: document.querySelector('.add-to-queue-btn'),
   moviesLib: document.querySelector('.movies-lib'),
   watchedQueueBtnBlock: document.querySelector('.buttons-block'),
+  buttonWatched: document.querySelector('.button-watched'),
+  buttonQueue: document.querySelector('.button-queue'),
 };
