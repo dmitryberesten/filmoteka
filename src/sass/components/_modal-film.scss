@@ -43,6 +43,13 @@
   display: flex;
 }
 
+.closeModalAnimation {
+  animation: closing 0.6s linear none;
+}
+.openModalAnimation {
+  animation: opening 0.6s linear none;
+}
+
 #modal {
   background-color: #fff;
   margin: 0 auto;
@@ -54,9 +61,8 @@
   max-height: 558px;
   border-radius: 3px;
   height: max-content;
-  animation: modal 0.4s linear none;
 }
-@keyframes modal {
+@keyframes opening {
   from {
     transform: translateX(-50%);
   }
@@ -65,6 +71,16 @@
     transform: translateX(0);
   }
 }
+@keyframes closing {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 #movie-card {
   height: auto;
   width: auto;
