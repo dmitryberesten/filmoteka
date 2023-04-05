@@ -13,7 +13,6 @@ function openModalTeam(event) {
   document.addEventListener('keydown', onEscapeClose);
   document.addEventListener('click', onBackdropClose);
   refs.teamModal[0].classList.add('openModalAnimationTeam');
-
   // document.body.style.overflow = 'hidden';
 }
 
@@ -31,6 +30,7 @@ function onEscapeClose(event) {
     setTimeout(() => {
       closeModalTeam();
     }, 400);
+    closeModalTeam();
   }
 }
 
@@ -41,5 +41,9 @@ function onBackdropClose(event) {
     setTimeout(() => {
       closeModalTeam();
     }, 400);
+  }
+}
+=======
+    closeModalTeam();
   }
 }
