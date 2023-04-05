@@ -17,10 +17,10 @@ export const getInitialModalData = () => {
 
   trailerBtn.dataset.filmId = cardData.id;
   filmId = cardData.id;
-
-  filmImg.src = cardData.poster_path
-    ? (filmImg.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500${cardData.poster_path}')`)
-    : (filmImg.style.backgroundImage = NO_POSTER);
+  filmImg.src =
+    cardData.poster_path !== 'null'
+      ? (filmImg.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500${cardData.poster_path}')`)
+      : (filmImg.style.backgroundImage = `url('${NO_POSTER}')`);
   filmTitle.innerText = cardData.title ? `${cardData.title}` : 'N/A';
   about.innerText = cardData.overview ? `${cardData.overview}` : 'N/A';
   averageElement.className = 'average';
