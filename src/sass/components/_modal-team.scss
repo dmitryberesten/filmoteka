@@ -4,14 +4,10 @@
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 1;
-  transition: opacity 0.9s ease 0s;
   z-index: 999;
   background-color: #00000079;
 }
-
 .team__backdrop--hidden {
-  opacity: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -21,7 +17,6 @@
   padding: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  margin: -1px;
 }
 
 .team__modal--close {
@@ -219,5 +214,28 @@ H1:hover:after {
   &:focus {
     fill: #ff6b08;
     transition-duration: 0.5s;
+  }
+}
+
+.closeModalAnimationTeam {
+  animation: closingTeam 0.4s linear none;
+}
+.openModalAnimationTeam {
+  animation: openingTeam 0.4s linear none;
+}
+@keyframes openingTeam {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+@keyframes closingTeam {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(100%);
   }
 }
