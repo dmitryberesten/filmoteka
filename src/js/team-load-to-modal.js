@@ -43,7 +43,3 @@ function onBackdropClose(event) {
     }, 400);
   }
 }
-=======
-    closeModalTeam();
-  }
-}
