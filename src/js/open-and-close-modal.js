@@ -6,11 +6,20 @@ import { refs } from './refs';
 import { state } from './state';
 
 const modal = document.getElementById('info-modal');
+const modalWind = document.getElementById('modal');
+
+const animationLogic = () => {
+  modalWind.classList.remove('openModalAnimation');
+  modalWind.classList.add('closeModalAnimation');
+  setTimeout(() => {
+    modal.classList.remove('open');
+    localStorage.removeItem('modalCardData');
+  }, 600);
+};
 
 window.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
-    modal.classList.remove('open');
-    localStorage.removeItem('modalCardData');
+    animationLogic();
   }
 });
 
@@ -18,8 +27,7 @@ const backdrop = document.getElementById('close-modal');
 
 backdrop.addEventListener('click', event => {
   if (event.target == backdrop) {
-    modal.classList.remove('open');
-    localStorage.removeItem('modalCardData');
+    animationLogic();
   }
 });
 
@@ -27,8 +35,7 @@ window.onclick = event => {
   let modal = document.getElementById('info-modal');
 
   if (event.target == modal) {
-    modal.classList.remove('open');
-    localStorage.removeItem('modalCardData');
+    animationLogic();
   }
 };
 
@@ -77,5 +84,7 @@ const openModal = () => {
   const modal = document.getElementById('info-modal');
 
   modal.classList.add('open');
+  modalWind.classList.add('openModalAnimation');
+
   modalFunctions.getInitialModalData();
 };
