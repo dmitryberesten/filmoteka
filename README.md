@@ -16,7 +16,7 @@
 
 </span>
 
-<h3 align="center"> ℹ️ &nbsp; The sWitchers Developers Team   🚀 <h3>
+<h3 align="center"> ℹ️ &nbsp; Browser Bosses Team   🚀 <h3>
 <span align="center">
 
 <a align="center" href="https://github.com/dmitryberesten">![GitHub](https://img.shields.io/badge/-Dima-05122A?style=flat&logo=github)</a>
